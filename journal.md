@@ -35,3 +35,10 @@ toitled
 
 seeeeee!! now i gotta fix it
 omggggggg
+
+
+# yo yo yo guess what only 7h left
+and i am here with the camera traking my hand yaaa!! i am right the web cam can track my hand nowwww
+<video controls src="Screen Recording 2026-09-05 004223.mp4" title=""></video>
+
+yeahhh it work but a lot probme need to make transperet need to remove the privew and lets seeeeeee!!!!
