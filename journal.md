@@ -21,3 +21,6 @@ basiclay what i did was installed some llm on my dumb pc to give a  brain and i 
 ## its me again
 bruhhhhh!!!! its taking a longgg
 "mr-bean-mrbean-sitting in journal files folder"
+
+# after long time 
+so now i added the hardware part where i connected esp32 with servos for the ear and i can controll it ny tocuingggggg yeah!!!!
