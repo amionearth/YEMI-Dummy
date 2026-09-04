@@ -24,3 +24,14 @@ bruhhhhh!!!! its taking a longgg
 
 # after long time 
 so now i added the hardware part where i connected esp32 with servos for the ear and i can controll it ny tocuingggggg yeah!!!!
+
+# well here me now
+
+i tried to make dumb ai now its really dumb "crying-cat-gif"
+like i want it to be dumb like me hehhe now its really dumb it dk what i am even saying like jst poop it outt 
+![
+toitled
+](image-1.png)
+
+seeeeee!! now i gotta fix it
+omggggggg
