@@ -12,3 +12,12 @@ mean its liek to eat a lotttt
 unlike me it like to eat and didnt eat it will dieeee !!! so you all better take hi ccare well
 so i have looking for some desigin and i get inspo as ![ img](image.png) 
 https://www.instagram.com/p/DYyLlraBk7p/
+
+# here we are at hour 3
+
+basiclay what i did was installed some llm on my dumb pc to give a  brain and i worte the program use of ai curretly wait to download its all 
+"mr-bean-mrbean gif in jornal file "
+
+## its me again
+bruhhhhh!!!! its taking a longgg
+"mr-bean-mrbean-sitting in journal files folder"
