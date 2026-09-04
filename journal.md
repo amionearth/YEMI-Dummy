@@ -46,7 +46,7 @@ yeahhh it work but a lot probme need to make transperet need to remove the prive
 
 and i fixed the fridge and web cam now it work well
 <video controls src="20260904-1956-35.4480082.mp4" title="Title"></video>
-
-
-
 seee it work now bit touch uppp needed
+|and with in 5 i have change the ui fully guess howwww 
+so i used codex to make a mini fridge web with intration and i told it to write the workind.md and feed that to antigrvity and it make it work see it 
+<video controls src="20260904-2014-17.6879841.mp4" title="Title"></video>
