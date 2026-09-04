@@ -42,3 +42,11 @@ and i am here with the camera traking my hand yaaa!! i am right the web cam can 
 <video controls src="Screen Recording 2026-09-05 004223.mp4" title=""></video>
 
 yeahhh it work but a lot probme need to make transperet need to remove the privew and lets seeeeeee!!!!
+# guysss i am back and only 6h left
+
+and i fixed the fridge and web cam now it work well
+<video controls src="20260904-1956-35.4480082.mp4" title="Title"></video>
+
+
+
+seee it work now bit touch uppp needed
