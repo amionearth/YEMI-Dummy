@@ -63,7 +63,7 @@ constexpr int SERVO_RES = 16;  // 16-bit resolution (0 - 65535)
 
 // --- Servo Range Limits (0° to 70°) & 20° Sweep Calibration ---
 constexpr int SERVO_LIMIT_MIN = 0;    // Hard limit: 0 degrees
-constexpr int SERVO_LIMIT_MAX = 70;   // Hard limit: 70 degrees
+constexpr int SERVO_LIMIT_MAX = 60;   // Hard limit: 70 degrees
 constexpr int SWEEP_AMPLITUDE = 20;   // 20 degrees back and forth movement
 
 // Centered inside 0° to 70°: sweep between 25° and 45° (45 - 25 = 20°)
