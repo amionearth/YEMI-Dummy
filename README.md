@@ -1,4 +1,4 @@
-<img width="1280" height="640" alt="Useless Pet hardware prototype" src="journal_files/prt.jpg" />
+<img width="1280" height="640" alt="Useless Pet hardware prototype" src="/landing_page/image/pic.jpeg" />
 
 # Useless Pet — Tink the Dumb AI Tamagotchi 🎯
 
