@@ -154,6 +154,20 @@ For Hardware:
 
 *The reel demonstrates the project’s physical AI-pet concept in action.*
 
+### Local Demo Recordings
+
+<video controls src="journal_files/Screen Recording 2026-09-05 004223.mp4" title="Webcam hand-tracking demo"></video>
+
+*Webcam hand tracking used to feed Tink through the fridge interface.*
+
+<video controls src="journal_files/20260904-1956-35.4480082.mp4" title="Fridge interaction demo"></video>
+
+*The improved floating fridge and webcam-based feeding interaction.*
+
+<video controls src="journal_files/20260904-2014-17.6879841.mp4" title="Interactive fridge UI demo"></video>
+
+*The interactive mini-fridge user interface used to feed the pet.*
+
 ### Additional Demos
 
 - Launch `start_all.bat` to try the floating pet and dashboard locally.
