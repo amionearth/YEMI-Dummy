@@ -4,14 +4,11 @@
 
 ## Basic Details
 
-### Team Name: [Add your team name]
+### Team Name: Solo
 
 ### Team Members
 
-- Team Lead: [Add name] - [Add college]
-- Member 2: [Add name] - [Add college]
-- Member 3: [Add name] - [Add college]
-
+- Team Lead: Muhammed Ameen - Jain Kochi
 ### Project Description
 
 Useless Pet is a delightfully unnecessary AI Tamagotchi called Tink. It lives as a floating desktop companion, learns from the notes you feed it, and can inhabit a physical ESP32-powered body with an OLED face, servo movement, and touch response.
