@@ -145,6 +145,8 @@ For Hardware:
 
 ## Project Demo
 
+
+
 ### Video
 
 [Watch YEMI in action on Instagram](https://www.instagram.com/reel/Dc47Gciy1hc/?utm_source=ig_web_copy_link&igsi=MzRlODBiNWFlZA==)
@@ -158,9 +160,7 @@ For Hardware:
 
 ## Team Contributions
 
-- [Add name]: [Add specific contribution]
-- [Add name]: [Add specific contribution]
-- [Add name]: [Add specific contribution]
+ All by my-self
 
 ---
 
