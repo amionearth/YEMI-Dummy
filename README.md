@@ -9,6 +9,8 @@
 > **An in-silico Tamagotchi organism that floats on your desktop and inhabits a physical ESP32 robotic body.**  
 > Powered by local AI (`smallthinker:latest` via Ollama) with **zero cloud dependencies, zero canned dialogue**, spontaneous reactions, autonomous wants, and real-time physical touch & motor response.
 
+🎬 **Project reel:** [Watch YEMI in action on Instagram](https://www.instagram.com/reel/Dc47Gciy1hc/?utm_source=ig_web_copy_link&igsi=MzRlODBiNWFlZA==)
+
 ---
 
 ## 🌟 Key Highlights
