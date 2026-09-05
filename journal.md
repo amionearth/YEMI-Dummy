@@ -56,3 +56,10 @@ btw i have done making the eye for esp32 look at this
 <video controls src="blush(after petting).mp4" title="Title
 "></video>
 and i use a opensource program to convert this video into eps32 oled codes tis spuwer easy
+
+# after a long time i am back now everything work well only 2h left
+![alt text](prt-1.jpg)
+
+yaaa you hear me right its workeddd liek fineeee now i can sleeeeep welllll he is cute and funnyyy 
+
+![alt text](hombrearaña-spiderman.gif)
