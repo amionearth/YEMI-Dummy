@@ -1,0 +1,59 @@
+{
+  "manifestVersion": 3,
+  "id": "openpets.walkabout",
+  "name": "$t:plugin.name",
+  "description": "$t:plugin.description",
+  "version": "1.0.0",
+  "runtime": "javascript",
+  "icon": "sparkles",
+  "assets": {
+    "icons": {
+      "footprints": "assets/footprints.svg"
+    }
+  },
+  "sdkVersion": "3.0.0",
+  "entry": "index.js",
+  "permissions": ["pet:move", "events", "pets:read", "status"],
+  "configSchema": {
+    "mode": {
+      "type": "select",
+      "default": "wander",
+      "label": "$t:config.mode.label",
+      "description": "$t:config.mode.description",
+      "options": [
+        { "value": "wander", "label": "$t:config.mode.wander" },
+        { "value": "follow-cursor", "label": "$t:config.mode.followCursor" },
+        { "value": "patrol", "label": "$t:config.mode.patrol" }
+      ]
+    },
+    "speed": {
+      "type": "select",
+      "default": "slow",
+      "label": "$t:config.speed.label",
+      "description": "$t:config.speed.description",
+      "options": [
+        { "value": "slow", "label": "$t:config.speed.slow" },
+        { "value": "normal", "label": "$t:config.speed.normal" },
+        { "value": "brisk", "label": "$t:config.speed.brisk" }
+      ]
+    },
+    "interval": {
+      "type": "select",
+      "default": "10",
+      "label": "$t:config.interval.label",
+      "description": "$t:config.interval.description",
+      "options": [
+        { "value": "2", "label": "$t:config.interval.2s" },
+        { "value": "5", "label": "$t:config.interval.5s" },
+        { "value": "10", "label": "$t:config.interval.10s" },
+        { "value": "20", "label": "$t:config.interval.20s" }
+      ]
+    },
+    "pauseWhenBusy": {
+      "type": "boolean",
+      "default": true,
+      "label": "$t:config.pauseWhenBusy.label",
+      "description": "$t:config.pauseWhenBusy.description"
+    }
+  }
+}

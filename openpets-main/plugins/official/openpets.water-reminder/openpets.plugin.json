@@ -1,0 +1,42 @@
+{
+  "manifestVersion": 3,
+  "id": "openpets.water-reminder",
+  "name": "$t:plugin.name",
+  "description": "$t:plugin.description",
+  "version": "1.0.1",
+  "runtime": "javascript",
+  "icon": "droplet",
+  "sdkVersion": "3.0.0",
+  "entry": "index.js",
+  "assets": {
+    "icons": {
+      "water": "assets/water.svg"
+    }
+  },
+  "permissions": [
+    "pet:speak",
+    "pet:interact",
+    "audio",
+    "schedule",
+    "storage",
+    "commands"
+  ],
+  "configSchema": {
+    "pace": {
+      "type": "select",
+      "default": "normal",
+      "label": "$t:config.pace.label",
+      "description": "$t:config.pace.description",
+      "options": [
+        { "value": "gentle", "label": "$t:config.pace.gentle" },
+        { "value": "normal", "label": "$t:config.pace.normal" },
+        { "value": "often", "label": "$t:config.pace.often" }
+      ]
+    },
+    "customSound": {
+      "type": "sound",
+      "label": "$t:config.customSound.label",
+      "description": "$t:config.customSound.description"
+    }
+  }
+}

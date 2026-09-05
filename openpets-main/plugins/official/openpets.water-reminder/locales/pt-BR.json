@@ -1,0 +1,23 @@
+{
+  "plugin.name": "Lembrete de água",
+  "plugin.description": "Um toque gentil do pet para fazer uma pausa para água.",
+  "config.pace.label": "Ritmo dos lembretes",
+  "config.pace.description": "Escolha com que frequência o pet aparece.",
+  "config.pace.gentle": "Leve",
+  "config.pace.normal": "Normal",
+  "config.pace.often": "Frequente",
+  "config.customSound.label": "Som personalizado",
+  "config.customSound.description": "Som opcional para tocar com o lembrete.",
+  "indicator.water": "Lembrete de água",
+  "command.testReminder.title": "Testar lembrete",
+  "command.testReminder.description": "Mostra um lembrete de água agora para que você possa verificar a mensagem e o som.",
+  "command.drinkNow.title": "Bebi água",
+  "command.drinkNow.description": "Marcar uma pausa para água agora.",
+  "command.pauseToday.title": "Pausar por hoje",
+  "command.pauseToday.description": "Pular lembretes de água até amanhã.",
+  "bubble.reminder": "Pausa para água? Alguns goles seriam bons.",
+  "action.done": "Pronto",
+  "action.later": "Depois",
+  "speech.done": "Boa. Eu aviso de novo mais tarde.",
+  "speech.paused": "Pausado por hoje. Eu lembro você amanhã."
+}

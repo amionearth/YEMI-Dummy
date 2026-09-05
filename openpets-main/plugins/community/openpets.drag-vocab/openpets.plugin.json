@@ -1,0 +1,94 @@
+{
+  "manifestVersion": 3,
+  "id": "openpets.drag-vocab",
+  "name": "$t:plugin.name",
+  "description": "$t:plugin.description",
+  "version": "1.0.0",
+  "runtime": "javascript",
+  "icon": "sparkles",
+  "sdkVersion": "3.0.0",
+  "entry": "index.js",
+  "permissions": [
+    "pet:speak",
+    "pet:drop",
+    "network",
+    "events",
+    "pet:reaction",
+    "pet:interact",
+    "network:local",
+    "network:write"
+  ],
+  "network": {
+    "hosts": [
+      "api.dictionaryapi.dev",
+      "translate.googleapis.com",
+      "127.0.0.1:8765"
+    ]
+  },
+  "configSchema": {
+    "provider": {
+      "type": "select",
+      "label": "Flashcard Provider",
+      "default": "none",
+      "options": [
+        {
+          "label": "None",
+          "value": "none"
+        },
+        {
+          "label": "Anki",
+          "value": "anki"
+        }
+      ]
+    },
+    "ankiDeck": {
+      "type": "text",
+      "label": "Anki Deck Name",
+      "default": "OpenPets Vocab",
+      "description": "The deck where vocabulary will be saved."
+    },
+    "preferredLanguage": {
+      "type": "select",
+      "options": [
+        {
+          "label": "Bangla (bn)",
+          "value": "bn"
+        },
+        {
+          "label": "Spanish (es)",
+          "value": "es"
+        },
+        {
+          "label": "French (fr)",
+          "value": "fr"
+        },
+        {
+          "label": "German (de)",
+          "value": "de"
+        },
+        {
+          "label": "Italian (it)",
+          "value": "it"
+        },
+        {
+          "label": "Japanese (ja)",
+          "value": "ja"
+        },
+        {
+          "label": "Chinese (zh)",
+          "value": "zh"
+        },
+        {
+          "label": "Hindi (hi)",
+          "value": "hi"
+        },
+        {
+          "label": "Arabic (ar)",
+          "value": "ar"
+        }
+      ],
+      "default": "bn",
+      "label": "Preferred Target Language"
+    }
+  }
+}

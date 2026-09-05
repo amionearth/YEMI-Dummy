@@ -1,0 +1,23 @@
+{
+  "plugin.name": "水分リマインダー",
+  "plugin.description": "ペットがやさしく水分休憩を知らせます。",
+  "config.pace.label": "リマインダーのペース",
+  "config.pace.description": "ペットが声をかける間隔を選びます。",
+  "config.pace.gentle": "ゆっくり",
+  "config.pace.normal": "ふつう",
+  "config.pace.often": "こまめ",
+  "config.customSound.label": "カスタム音",
+  "config.customSound.description": "リマインダーで鳴らす任意の音です。",
+  "indicator.water": "水分リマインダー",
+  "command.testReminder.title": "リマインダーをテスト",
+  "command.testReminder.description": "今すぐ水分リマインダーを表示して、メッセージとサウンドを確認します。",
+  "command.drinkNow.title": "水を飲みました",
+  "command.drinkNow.description": "今の水分休憩を記録します。",
+  "command.pauseToday.title": "今日は一時停止",
+  "command.pauseToday.description": "明日まで水分リマインダーを止めます。",
+  "bubble.reminder": "水分休憩にする？ 少し飲むとよさそう。",
+  "action.done": "完了",
+  "action.later": "あとで",
+  "speech.done": "いいね。またあとで声をかけるね。",
+  "speech.paused": "今日は一時停止したよ。明日また知らせるね。"
+}

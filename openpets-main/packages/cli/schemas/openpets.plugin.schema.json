@@ -1,0 +1,168 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://openpets.dev/schemas/openpets.plugin.schema.json",
+  "title": "OpenPets plugin manifest",
+  "description": "Manifest for OpenPets desktop pet plugins (openpets.plugin.json). manifestVersion 1 is declarative, 2 is the JavaScript SDK v2 surface, 3 is SDK v3 (SuperPlugins).",
+  "type": "object",
+  "required": ["manifestVersion", "id", "name", "version", "runtime", "permissions"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "manifestVersion": { "enum": [1, 2, 3] },
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{1,62}[a-z0-9]$" },
+    "name": { "type": "string", "minLength": 1, "maxLength": 120 },
+    "description": { "type": "string", "maxLength": 1000 },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+(?:[-+][0-9A-Za-z.-]+)?$" },
+    "runtime": { "enum": ["declarative", "javascript"] },
+    "icon": { "enum": ["plugin", "bell", "timer", "github", "heart", "sparkles", "coffee", "focus", "droplet"] },
+    "sdkVersion": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+(?:[-+][0-9A-Za-z.-]+)?$" },
+    "entry": { "type": "string", "pattern": "\\.(mjs|js)$" },
+    "permissions": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "pet:speak", "pet:reaction", "pet:move", "timer", "schedule", "storage", "status", "commands", "network",
+          "pet:interact", "pet:pin", "pet:animate", "pet:speak:dynamic", "pet:drop", "pets:read", "pets:manage",
+          "audio", "events", "ui:toast", "ui:panel", "ui:delivery", "notify", "bus", "ai", "secrets", "voice:speak", "voice:listen",
+          "auth", "files", "system:openExternal", "system:metrics", "clipboard", "network:write"
+        ]
+      }
+    },
+    "network": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["hosts"],
+      "properties": {
+        "hosts": { "type": "array", "items": { "type": "string", "pattern": "^[A-Za-z0-9.-]+(:\\d{1,5})?$" } }
+      }
+    },
+    "configSchema": {
+      "type": "object",
+      "additionalProperties": { "$ref": "#/definitions/configField" }
+    },
+    "assets": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "icons": { "$ref": "#/definitions/assetGroup" },
+        "images": { "$ref": "#/definitions/assetGroup" },
+        "svgs": { "$ref": "#/definitions/assetGroup" },
+        "sprites": { "$ref": "#/definitions/spriteAssetGroup" },
+        "sounds": { "$ref": "#/definitions/assetGroup" }
+      }
+    },
+    "panels": {
+      "type": "object",
+      "maxProperties": 8,
+      "propertyNames": { "pattern": "^[a-z0-9][a-z0-9._-]{0,63}$" },
+      "additionalProperties": { "type": "string", "pattern": "\\.html$" }
+    },
+    "triggers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["on", "everyMinutes", "actions"],
+        "properties": {
+          "on": { "const": "timer" },
+          "everyMinutes": { "oneOf": [{ "type": "integer", "minimum": 5 }, { "$ref": "#/definitions/configRef" }] },
+          "actions": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["type", "message"],
+                  "properties": { "type": { "const": "pet.speak" }, "message": { "oneOf": [{ "type": "string" }, { "$ref": "#/definitions/configRef" }] } }
+                },
+                {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["type", "reaction"],
+                  "properties": { "type": { "const": "pet.react" }, "reaction": { "oneOf": [{ "type": "string" }, { "$ref": "#/definitions/configRef" }] } }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "manifestVersion": { "const": 1 } } },
+      "then": { "required": ["triggers"], "properties": { "runtime": { "const": "declarative" } } }
+    },
+    {
+      "if": { "properties": { "manifestVersion": { "enum": [2, 3] } } },
+      "then": { "required": ["sdkVersion", "entry"], "properties": { "runtime": { "const": "javascript" } } }
+    },
+    {
+      "if": { "properties": { "manifestVersion": { "const": 3 } } },
+      "then": { "properties": { "sdkVersion": { "pattern": "^3\\." } } }
+    },
+    {
+      "if": { "properties": { "manifestVersion": { "const": 2 } } },
+      "then": { "properties": { "assets": false, "panels": false } }
+    }
+  ],
+  "definitions": {
+    "assetGroup": {
+      "type": "object",
+      "maxProperties": 32,
+      "propertyNames": { "pattern": "^[a-z0-9][a-z0-9._-]{0,63}$" },
+      "additionalProperties": { "type": "string" }
+    },
+    "spriteAssetGroup": {
+      "type": "object",
+      "maxProperties": 32,
+      "propertyNames": { "pattern": "^[a-z0-9][a-z0-9._-]{0,63}$" },
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "frameWidth", "frameHeight", "frames", "durationMs"],
+        "properties": {
+          "path": { "type": "string", "pattern": "\\.webp$" },
+          "frameWidth": { "type": "integer", "minimum": 32, "maximum": 512 },
+          "frameHeight": { "type": "integer", "minimum": 32, "maximum": 512 },
+          "frames": { "type": "integer", "minimum": 1, "maximum": 16 },
+          "durationMs": { "type": "integer", "minimum": 100, "maximum": 4000 }
+        }
+      }
+    },
+    "configRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["config"],
+      "properties": { "config": { "type": "string" } }
+    },
+    "configField": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type"],
+      "properties": {
+        "type": { "enum": ["text", "textarea", "number", "boolean", "select", "time", "date", "multiSelect", "list", "secret", "sound"] },
+        "label": { "type": "string" },
+        "description": { "type": "string" },
+        "presentation": { "enum": ["sprite-grid"] },
+        "default": {},
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["label", "value"],
+            "properties": { "label": { "type": "string" }, "value": { "type": "string" }, "previewSprite": { "type": "string" } }
+          }
+        },
+        "min": { "type": "number" },
+        "max": { "type": "number" },
+        "step": { "type": "number" },
+        "maxLength": { "type": "integer" },
+        "maxItems": { "type": "integer" },
+        "itemSchema": { "type": "object", "additionalProperties": { "$ref": "#/definitions/configField" } }
+      }
+    }
+  }
+}

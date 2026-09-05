@@ -1,0 +1,23 @@
+{
+  "plugin.name": "喝水提醒",
+  "plugin.description": "让宠物温柔提醒你喝点水。",
+  "config.pace.label": "提醒频率",
+  "config.pace.description": "选择宠物多久来提醒一次。",
+  "config.pace.gentle": "轻柔",
+  "config.pace.normal": "普通",
+  "config.pace.often": "较频繁",
+  "config.customSound.label": "自定义声音",
+  "config.customSound.description": "提醒时可选播放的声音。",
+  "indicator.water": "喝水提醒",
+  "command.testReminder.title": "测试提醒",
+  "command.testReminder.description": "立即显示喝水提醒，以便你检查内容和声音。",
+  "command.drinkNow.title": "我喝水了",
+  "command.drinkNow.description": "记录一次现在的喝水休息。",
+  "command.pauseToday.title": "今天暂停",
+  "command.pauseToday.description": "暂停喝水提醒直到明天。",
+  "bubble.reminder": "喝水休息一下？小口喝点也不错。",
+  "action.done": "完成",
+  "action.later": "稍后",
+  "speech.done": "不错。我晚点再来提醒。",
+  "speech.paused": "今天已暂停。我明天再提醒你。"
+}

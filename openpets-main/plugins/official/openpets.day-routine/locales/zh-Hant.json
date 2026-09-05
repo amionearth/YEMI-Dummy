@@ -1,0 +1,21 @@
+{
+  "plugin.name": "早晚日常",
+  "plugin.description": "溫和的每日陪伴，和你的寵物一起開始並收起一天。",
+  "config.morningTime.label": "早晨時間",
+  "config.morningTime.description": "顯示早安問候的本地時間。",
+  "config.eveningTime.label": "夜晚時間",
+  "config.eveningTime.description": "顯示晚間收尾的本地時間。",
+  "config.enableMorning.label": "啟用早晨",
+  "config.enableMorning.description": "每天顯示早安問候。",
+  "config.enableEvening.label": "啟用夜晚",
+  "config.enableEvening.description": "每天顯示晚間收尾。",
+  "command.morningNow.title": "立即早安問候",
+  "command.morningNow.description": "顯示今天的早安問候一次。",
+  "command.eveningNow.title": "立即晚間收尾",
+  "command.eveningNow.description": "顯示今天的晚間收尾一次。",
+  "command.pauseToday.title": "今天暫停",
+  "command.pauseToday.description": "跳過日常提醒直到明天。",
+  "speech.morning": "早安。先踏出溫柔的一步，讓今天慢慢展開。",
+  "speech.evening": "晚間小提醒。現在可以放下今天，好好休息了。",
+  "speech.paused": "今天已暫停。我明天再來陪你。"
+}

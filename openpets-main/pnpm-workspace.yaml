@@ -1,0 +1,24 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+supportedArchitectures:
+  os:
+    - darwin
+    - win32
+    - linux
+  cpu:
+    - x64
+    - arm64
+  libc:
+    - glibc
+allowBuilds:
+  '@google/genai': true
+  electron-winstaller: false
+  esbuild: true
+  get-windows: true
+  koffi: true
+  openclaw: false
+  protobufjs: true
+  sharp: true
+  tree-sitter-bash: false
+  workerd: true

@@ -1,0 +1,45 @@
+{
+  "manifestVersion": 3,
+  "id": "openpets.higgsfield-watch",
+  "name": "$t:plugin.name",
+  "description": "$t:plugin.description",
+  "version": "1.0.0",
+  "runtime": "javascript",
+  "icon": "sparkles",
+  "sdkVersion": "3.0.0",
+  "entry": "index.js",
+  "permissions": [
+    "network",
+    "schedule",
+    "storage",
+    "pet:speak",
+    "pet:reaction",
+    "commands",
+    "status"
+  ],
+  "network": {
+    "hosts": [
+      "fnf.higgsfield.ai"
+    ]
+  },
+  "configSchema": {
+    "apiToken": {
+      "type": "secret",
+      "label": "Higgsfield access token",
+      "description": "Paste the output of: higgsfield auth token (Higgsfield CLI)"
+    },
+    "pollIntervalSeconds": {
+      "type": "number",
+      "label": "Poll interval (seconds)",
+      "default": 30,
+      "min": 10,
+      "max": 300,
+      "step": 5
+    },
+    "announceStarts": {
+      "type": "boolean",
+      "label": "Announce when new generations start",
+      "default": true
+    }
+  }
+}

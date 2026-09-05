@@ -1,0 +1,41 @@
+{
+  "version": 2,
+  "generatedAt": "2026-05-05T08:55:53.722Z",
+  "pets": [
+    {
+      "id": "snoopy",
+      "displayName": "Snoopy",
+      "description": "A tiny black-and-white beagle with a red collar for calm coding sessions.",
+      "preview": "https://openpets.dev/pets/snoopy-23e05847/spritesheet.webp",
+      "zip": "https://zip.openpets.dev/pets/snoopy-23e05847/snoopy.zip"
+    },
+    {
+      "id": "clippit",
+      "displayName": "Clippy",
+      "description": "A classic paperclip assistant rebuilt from Microsoft Agent animation frames.",
+      "preview": "https://openpets.dev/pets/clippit-904b393f/spritesheet.webp",
+      "zip": "https://zip.openpets.dev/pets/clippit-904b393f/clippit.zip"
+    },
+    {
+      "id": "tux",
+      "displayName": "Tux",
+      "description": "A tiny pixel-adjacent Linux mascot penguin for calm coding sessions.",
+      "preview": "https://openpets.dev/pets/tux-de2f300f/spritesheet.webp",
+      "zip": "https://zip.openpets.dev/pets/tux-de2f300f/tux.zip"
+    },
+    {
+      "id": "wall-e",
+      "displayName": "Wall-E",
+      "description": "A tiny weathered trash-compactor robot companion with binocular eyes, treads, and a gentle waving arm.",
+      "preview": "https://openpets.dev/pets/wall-e-779d5202/spritesheet.webp",
+      "zip": "https://zip.openpets.dev/pets/wall-e-779d5202/wall-e.zip"
+    },
+    {
+      "id": "dobby",
+      "displayName": "Dobby",
+      "description": "An earnest, genuinely helpful tiny house-elf Codex pet with huge ears, wide kind eyes, and a simple worn tunic.",
+      "preview": "https://openpets.dev/pets/dobby-3f6746e0/spritesheet.webp",
+      "zip": "https://zip.openpets.dev/pets/dobby-3f6746e0/dobby.zip"
+    }
+  ]
+}

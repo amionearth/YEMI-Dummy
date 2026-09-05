@@ -1,0 +1,67 @@
+{
+  "name": "@open-pets/pi",
+  "version": "3.5.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alvinunreal/openpets.git",
+    "directory": "packages/pi"
+  },
+  "type": "module",
+  "keywords": [
+    "pi-package",
+    "openpets",
+    "coding-agent"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/extension.d.ts",
+    "dist/extension.js",
+    "dist/index.d.ts",
+    "dist/index.js",
+    "dist/runtime.d.ts",
+    "dist/runtime.js"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./extension": {
+      "types": "./dist/extension.d.ts",
+      "default": "./dist/extension.js"
+    }
+  },
+  "pi": {
+    "extensions": [
+      "./dist/extension.js"
+    ]
+  },
+  "scripts": {
+    "test": "node dist/check-pi.js && node dist/check-pi-compat.js",
+    "prepack": "pnpm build",
+    "check": "pnpm typecheck && pnpm build && pnpm test",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@open-pets/agent-events": "workspace:*",
+    "@open-pets/client": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.2",
+    "typescript": "^6.0.3"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*"
+  },
+  "peerDependenciesMeta": {
+    "@earendil-works/pi-coding-agent": {
+      "optional": true
+    }
+  }
+}

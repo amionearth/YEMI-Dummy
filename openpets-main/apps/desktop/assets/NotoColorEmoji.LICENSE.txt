@@ -1,0 +1,11 @@
+Noto Color Emoji
+
+This bundled font is from Google's Noto Emoji project and is licensed under the
+SIL Open Font License, Version 1.1.
+
+Project: https://github.com/googlefonts/noto-emoji
+License: https://openfontlicense.org/open-font-license-official-text/
+
+The font is bundled so OpenPets pet-window emoji/status icons render reliably on
+fresh Linux desktop installs without requiring users to install extra system
+fonts.

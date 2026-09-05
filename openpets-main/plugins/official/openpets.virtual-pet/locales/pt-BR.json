@@ -1,0 +1,57 @@
+{
+  "plugin.name": "Pet virtual",
+  "plugin.description": "Cuide de um pequeno companheiro de desktop e veja o vínculo de vocês crescer com interações leves do dia a dia.",
+  "hud.food": "Comida",
+  "hud.energy": "Energia",
+  "hud.play": "Brincar",
+  "hud.bond": "Vínculo",
+  "config.showStats.label": "Mostrar painel de status",
+  "config.showStats.description": "Mostra o painel de Comida, Energia, Brincar e Vínculo ao lado do seu pet. Desative para ocultá-lo e liberar espaço na tela.",
+  "config.sound.label": "Som de ação",
+  "config.sound.description": "Opcionalmente reproduz um som para ações diretas de cuidado, como alimentar, brincar, fazer carinho ou descansar.",
+
+  "command.feed.title": "Dar petisco",
+  "command.feed.description": "Dê um petisco ao seu pet.",
+  "command.play.title": "Brincar",
+  "command.play.description": "Jogue uma partida rápida.",
+  "command.pet.title": "Fazer carinho",
+  "command.pet.description": "Dê carinho ao seu pet.",
+  "command.nap.title": "Deixar descansar",
+  "command.nap.description": "Deixe seu pet descansar por 15 minutos.",
+  "command.status.title": "Ver pet",
+  "command.status.description": "Veja como seu pet está se sentindo.",
+
+  "speech.feed.0": "Valeu pelo petisco!",
+  "speech.feed.1": "*nhac nhac nhac*",
+  "speech.feed.2": "Que delícia!",
+  "speech.feed.3": "Estava delicioso!",
+
+  "speech.play.0": "Foi divertido!",
+  "speech.play.1": "Eba!",
+  "speech.play.2": "Eu adoro brincar!",
+  "speech.play.3": "De novo!",
+
+  "speech.pet.0": "Ronron...",
+  "speech.pet.1": "*se aconchega*",
+  "speech.pet.2": "Quentinho...",
+  "speech.pet.3": "Tão macio!",
+
+  "speech.nap.0": "Zzz...",
+  "speech.nap.1": "*se enrosca*",
+  "speech.nap.2": "Com soninho...",
+  "speech.nap.3": "Descansando...",
+
+  "speech.levelup": "Estamos ficando mais próximos!",
+
+  "speech.status.sleeping": "Zzz... descansando.",
+  "speech.status.hungry": "Estou com um pouco de fome.",
+  "speech.status.tired": "Estou com sono.",
+  "speech.status.bored": "Quero brincar.",
+  "speech.status.happy": "Estou me sentindo muito bem!",
+  "speech.status.content": "Estou em paz.",
+
+  "nudge.hungry": "Estou ficando com um pouco de fome.",
+  "nudge.tired": "Estou ficando com sono.",
+  "nudge.bored": "Quer brincar?",
+  "nudge.neglected": "Posso receber um pouco de atenção?"
+}

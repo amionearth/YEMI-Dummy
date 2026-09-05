@@ -1,0 +1,57 @@
+{
+  "plugin.name": "虛擬寵物",
+  "plugin.description": "照顧一個小小的桌面夥伴，透過溫柔的日常互動看著你們的羈絆成長。",
+  "hud.food": "食物",
+  "hud.energy": "能量",
+  "hud.play": "玩耍",
+  "hud.bond": "羈絆",
+  "config.showStats.label": "顯示狀態面板",
+  "config.showStats.description": "在寵物旁邊顯示食物、能量、玩耍和羈絆面板。關閉後將其隱藏以騰出螢幕空間。",
+  "config.sound.label": "動作聲音",
+  "config.sound.description": "餵食、玩耍、撫摸或休息等直接照顧動作可選擇播放聲音。",
+
+  "command.feed.title": "餵零食",
+  "command.feed.description": "給你的寵物餵一份零食。",
+  "command.play.title": "玩遊戲",
+  "command.play.description": "玩一個小遊戲。",
+  "command.pet.title": "撫摸",
+  "command.pet.description": "給你的寵物一點關愛。",
+  "command.nap.title": "讓牠休息",
+  "command.nap.description": "讓你的寵物休息 15 分鐘。",
+  "command.status.title": "查看寵物",
+  "command.status.description": "看看你的寵物感覺怎麼樣。",
+
+  "speech.feed.0": "謝謝你的零食！",
+  "speech.feed.1": "*嚼嚼嚼*",
+  "speech.feed.2": "好吃！",
+  "speech.feed.3": "太美味了！",
+
+  "speech.play.0": "真好玩！",
+  "speech.play.1": "耶！",
+  "speech.play.2": "我喜歡玩遊戲！",
+  "speech.play.3": "再來一次！",
+
+  "speech.pet.0": "呼嚕...",
+  "speech.pet.1": "*蹭蹭*",
+  "speech.pet.2": "暖暖的...",
+  "speech.pet.3": "好柔軟！",
+
+  "speech.nap.0": "Zzz...",
+  "speech.nap.1": "*蜷起來*",
+  "speech.nap.2": "困困的...",
+  "speech.nap.3": "休息中...",
+
+  "speech.levelup": "我們更親近了！",
+
+  "speech.status.sleeping": "Zzz...正在休息。",
+  "speech.status.hungry": "我有點餓了。",
+  "speech.status.tired": "我有點困。",
+  "speech.status.bored": "我想玩。",
+  "speech.status.happy": "我感覺棒極了！",
+  "speech.status.content": "我很滿足。",
+
+  "nudge.hungry": "我有點餓了。",
+  "nudge.tired": "我有點困了。",
+  "nudge.bored": "想一起玩嗎？",
+  "nudge.neglected": "可以陪陪我嗎？"
+}

@@ -1,0 +1,40 @@
+{
+  "manifestVersion": 3,
+  "id": "openpets.virtual-pet",
+  "name": "$t:plugin.name",
+  "description": "$t:plugin.description",
+  "version": "1.1.0",
+  "runtime": "javascript",
+  "icon": "heart",
+  "sdkVersion": "3.0.0",
+  "entry": "index.js",
+  "assets": {
+    "icons": {
+      "virtual-pet": "assets/virtual-pet.svg"
+    }
+  },
+  "permissions": [
+    "pet:speak",
+    "pet:interact",
+    "pet:pin",
+    "pet:reaction",
+    "schedule",
+    "storage",
+    "commands",
+    "audio",
+    "events"
+  ],
+  "configSchema": {
+    "showStats": {
+      "type": "boolean",
+      "default": true,
+      "label": "$t:config.showStats.label",
+      "description": "$t:config.showStats.description"
+    },
+    "sound": {
+      "type": "sound",
+      "label": "$t:config.sound.label",
+      "description": "$t:config.sound.description"
+    }
+  }
+}

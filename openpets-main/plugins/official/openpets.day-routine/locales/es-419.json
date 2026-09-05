@@ -1,0 +1,21 @@
+{
+  "plugin.name": "Rutina de mañana y noche",
+  "plugin.description": "Acompañamientos diarios suaves para iniciar y cerrar el día con tu mascota.",
+  "config.morningTime.label": "Hora de la mañana",
+  "config.morningTime.description": "Hora local para el saludo matutino.",
+  "config.eveningTime.label": "Hora de la noche",
+  "config.eveningTime.description": "Hora local para cerrar el día.",
+  "config.enableMorning.label": "Activar mañana",
+  "config.enableMorning.description": "Muestra el saludo matutino cada día.",
+  "config.enableEvening.label": "Activar noche",
+  "config.enableEvening.description": "Muestra el cierre nocturno cada día.",
+  "command.morningNow.title": "Saludo matutino ahora",
+  "command.morningNow.description": "Muestra una vez el saludo matutino de hoy.",
+  "command.eveningNow.title": "Cierre nocturno ahora",
+  "command.eveningNow.description": "Muestra una vez el cierre nocturno de hoy.",
+  "command.pauseToday.title": "Pausar hoy",
+  "command.pauseToday.description": "Omite los acompañamientos hasta mañana.",
+  "speech.morning": "Buenos días. Da un primer paso suave y deja que el día avance.",
+  "speech.evening": "Revisión de la noche. Ya puedes soltar el día y descansar.",
+  "speech.paused": "Pausado por hoy. Volveré a acompañarte mañana."
+}

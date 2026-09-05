@@ -1,0 +1,36 @@
+name: Bug report
+description: Report something broken in the Electron app, CLI, MCP, or integrations.
+title: "Bug: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Keep it short — we only need enough to reproduce it.
+
+        If the desktop app starts, please consider attaching your OpenPets log. It is not required, but it is highly recommended because it often explains startup, tray, pet display, and integration issues.
+
+        To find it: open OpenPets from the tray/menu bar, choose **Open Logs Folder**, then attach `openpets.log` to this issue. If OpenPets cannot start, check these folders manually:
+        - macOS: `~/Library/Application Support/OpenPets/logs/`
+        - Windows: `%APPDATA%\OpenPets\logs\`
+        - Linux: `~/.config/OpenPets/logs/`
+
+        If the problem happened before the latest restart, `openpets.previous.log` may also be useful.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the bug. Include your OS/app version if you know it.
+      placeholder: "The desktop pet disappeared after..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs (optional, highly recommended)
+      description: Attach openpets.log if you can. If the app cannot start or you cannot find it, leave this blank.
+      placeholder: "Drag openpets.log here, or paste the most relevant lines."
+    validations:
+      required: false

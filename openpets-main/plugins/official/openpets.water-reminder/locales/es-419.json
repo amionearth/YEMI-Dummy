@@ -1,0 +1,23 @@
+{
+  "plugin.name": "Recordatorio de agua",
+  "plugin.description": "Un pequeño aviso de tu mascota para tomar agua.",
+  "config.pace.label": "Ritmo de recordatorios",
+  "config.pace.description": "Elige cada cuánto quieres que tu mascota te avise.",
+  "config.pace.gentle": "Suave",
+  "config.pace.normal": "Normal",
+  "config.pace.often": "Frecuente",
+  "config.customSound.label": "Sonido personalizado",
+  "config.customSound.description": "Sonido opcional para el recordatorio.",
+  "indicator.water": "Recordatorio de agua",
+  "command.testReminder.title": "Probar recordatorio",
+  "command.testReminder.description": "Muestra un recordatorio de agua ahora para que puedas comprobar el mensaje y el sonido.",
+  "command.drinkNow.title": "Ya tomé agua",
+  "command.drinkNow.description": "Marca una pausa para tomar agua ahora.",
+  "command.pauseToday.title": "Pausar por hoy",
+  "command.pauseToday.description": "Omitir recordatorios de agua hasta mañana.",
+  "bubble.reminder": "¿Pausa para agua? Unos sorbitos estarían bien.",
+  "action.done": "Listo",
+  "action.later": "Más tarde",
+  "speech.done": "Bien. Vuelvo a avisarte más tarde.",
+  "speech.paused": "Pausado por hoy. Te recordaré mañana."
+}

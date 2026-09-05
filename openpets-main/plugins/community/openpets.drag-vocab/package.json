@@ -1,0 +1,9 @@
+{
+  "name": "openpets.drag-vocab",
+  "version": "1.0.0",
+  "description": "OpenPets community plugin — drag text onto the pet for definitions, translations, and optional Anki saves.",
+  "type": "module",
+  "devDependencies": {
+    "@open-pets/plugin-sdk": "^3.0.0"
+  }
+}

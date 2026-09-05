@@ -1,0 +1,47 @@
+{
+  "name": "@open-pets/cli",
+  "version": "3.5.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alvinunreal/openpets.git",
+    "directory": "packages/cli"
+  },
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "openpets": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "schemas"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "test": "node dist/check-cli-contract.js",
+    "check": "pnpm typecheck && pnpm build && pnpm test",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.2",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "@open-pets/client": "workspace:*",
+    "@open-pets/claude": "workspace:*",
+    "@open-pets/cursor": "workspace:*",
+    "@open-pets/mcp": "workspace:*",
+    "@open-pets/openclaw": "workspace:*",
+    "@open-pets/opencode": "workspace:*"
+  }
+}

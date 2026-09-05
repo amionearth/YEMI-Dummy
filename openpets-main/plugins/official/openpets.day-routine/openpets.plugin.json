@@ -1,0 +1,43 @@
+{
+  "manifestVersion": 3,
+  "id": "openpets.day-routine",
+  "name": "$t:plugin.name",
+  "description": "$t:plugin.description",
+  "version": "1.0.0",
+  "runtime": "javascript",
+  "icon": "coffee",
+  "sdkVersion": "3.0.0",
+  "entry": "index.js",
+  "assets": {
+    "icons": {
+      "routine": "assets/routine.svg"
+    }
+  },
+  "permissions": ["pet:speak", "schedule", "storage", "commands"],
+  "configSchema": {
+    "morningTime": {
+      "type": "time",
+      "default": "09:00",
+      "label": "$t:config.morningTime.label",
+      "description": "$t:config.morningTime.description"
+    },
+    "eveningTime": {
+      "type": "time",
+      "default": "21:00",
+      "label": "$t:config.eveningTime.label",
+      "description": "$t:config.eveningTime.description"
+    },
+    "enableMorning": {
+      "type": "boolean",
+      "default": true,
+      "label": "$t:config.enableMorning.label",
+      "description": "$t:config.enableMorning.description"
+    },
+    "enableEvening": {
+      "type": "boolean",
+      "default": true,
+      "label": "$t:config.enableEvening.label",
+      "description": "$t:config.enableEvening.description"
+    }
+  }
+}

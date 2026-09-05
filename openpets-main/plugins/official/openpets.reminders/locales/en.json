@@ -1,0 +1,58 @@
+{
+  "plugin.name": "Quick Reminders",
+  "plugin.description": "Set short local reminders from the pet menu, delivered with sound and a sticky alert bubble you can snooze.",
+
+  "config.soundEnabled.label": "Play a sound",
+  "config.soundEnabled.description": "Play an alert sound when a reminder is due.",
+  "config.osNotification.label": "Show a system notification",
+  "config.osNotification.description": "Also post a desktop notification when a reminder is due.",
+  "config.customSound.label": "Custom alert sound",
+  "config.customSound.description": "Optional sound to play instead of the default alert sound.",
+
+  "command.testReminder.title": "Test reminder",
+  "command.testReminder.description": "Show a reminder alert now so you can check the message, buttons, icon, and sound.",
+  "command.setReminder.title": "Set reminder…",
+  "command.setReminder.description": "Create a quick local reminder.",
+  "command.setReminder.submit": "Set Reminder",
+  "command.reminder15.title": "15 min reminder",
+  "command.reminder15.description": "Set a reminder for 15 minutes from now.",
+  "command.reminder30.title": "30 min reminder",
+  "command.reminder30.description": "Set a reminder for 30 minutes from now.",
+  "command.reminder60.title": "1 hour reminder",
+  "command.reminder60.description": "Set a reminder for 1 hour from now.",
+  "command.viewReminders.title": "View reminders",
+  "command.viewReminders.description": "List pending reminders and cancel any of them.",
+  "command.clearReminders.title": "Clear reminders",
+  "command.clearReminders.description": "Cancel all pending reminders.",
+
+  "form.message.label": "Message",
+  "form.hours.label": "Hours",
+  "form.minutes.label": "Minutes",
+
+  "reminder.defaultMessage": "Reminder time.",
+  "reminder.testMessage": "This is a test reminder.",
+
+  "status.active": "{count} reminder(s) active",
+  "status.none": "No active reminders",
+
+  "speech.set": "Reminder set for {minutes} min from now.",
+  "speech.none": "No active reminders.",
+  "speech.cleared": "Reminders cleared.",
+  "speech.cancelled": "Cancelled: {message}",
+
+  "bubble.due": "{message}",
+  "bubble.missed": "Missed while away: {message}",
+
+  "indicator.due": "Reminder",
+  "indicator.missed": "Missed reminder",
+
+  "action.done": "Done",
+  "action.snooze": "Snooze 5m",
+
+  "menu.item": "in {minutes} min: {message}",
+
+  "notify.title": "Quick Reminders",
+  "notify.bodyMissed": "Missed while away: {message}",
+
+  "error.tooMany": "Quick Reminders can keep up to {max} active reminders."
+}

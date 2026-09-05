@@ -1,0 +1,54 @@
+{
+  "manifestVersion": 3,
+  "id": "openpets.focus-buddy",
+  "name": "$t:plugin.name",
+  "description": "$t:plugin.description",
+  "version": "1.1.0",
+  "runtime": "javascript",
+  "icon": "timer",
+  "sdkVersion": "3.0.0",
+  "entry": "index.js",
+  "assets": {
+    "icons": {
+      "focus": "assets/focus.svg"
+    }
+  },
+  "permissions": [
+    "pet:speak",
+    "pet:interact",
+    "pet:pin",
+    "schedule",
+    "storage",
+    "commands",
+    "status",
+    "audio"
+  ],
+  "configSchema": {
+    "focusLength": {
+      "type": "select",
+      "default": "25",
+      "label": "$t:config.focusLength.label",
+      "description": "$t:config.focusLength.description",
+      "options": [
+        { "value": "25", "label": "$t:config.focusLength.25" },
+        { "value": "45", "label": "$t:config.focusLength.45" },
+        { "value": "60", "label": "$t:config.focusLength.60" }
+      ]
+    },
+    "breakStyle": {
+      "type": "select",
+      "default": "normal",
+      "label": "$t:config.breakStyle.label",
+      "description": "$t:config.breakStyle.description",
+      "options": [
+        { "value": "gentle", "label": "$t:config.breakStyle.gentle" },
+        { "value": "normal", "label": "$t:config.breakStyle.normal" }
+      ]
+    },
+    "sound": {
+      "type": "sound",
+      "label": "$t:config.sound.label",
+      "description": "$t:config.sound.description"
+    }
+  }
+}

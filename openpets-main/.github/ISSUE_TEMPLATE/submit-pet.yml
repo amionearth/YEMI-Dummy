@@ -1,0 +1,29 @@
+name: Submit a pet
+description: Suggest a pet for the OpenPets gallery.
+title: "Pet submission: "
+labels: ["pet submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a pet. Keep it short — we only need the essentials.
+
+  - type: input
+    id: pet-idea
+    attributes:
+      label: Pet idea or name
+      description: What should the pet be called, and what is it?
+      placeholder: "Pixel Penguin — a tiny penguin coding companion"
+    validations:
+      required: true
+
+  - type: textarea
+    id: source-rights
+    attributes:
+      label: Asset/source and rights
+      description: Link the asset, repo, preview, or source. Mention if it is original, licensed, public domain/CC0, or fan-made.
+      placeholder: |
+        Link: https://...
+        Rights: original / licensed / CC0 / fan-made / unsure
+    validations:
+      required: true

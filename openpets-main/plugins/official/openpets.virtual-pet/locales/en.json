@@ -1,0 +1,57 @@
+{
+  "plugin.name": "Virtual Pet",
+  "plugin.description": "Care for a little desktop companion and watch your bond grow through gentle everyday interactions.",
+  "hud.food": "Food",
+  "hud.energy": "Energy",
+  "hud.play": "Play",
+  "hud.bond": "Bond",
+  "config.showStats.label": "Show stats panel",
+  "config.showStats.description": "Show the Food, Energy, Play, and Bond panel next to your pet. Turn off to hide it and free up screen space.",
+  "config.sound.label": "Action sound",
+  "config.sound.description": "Optionally play a sound for direct care actions like feeding, playing, petting, or resting.",
+  
+  "command.feed.title": "Feed snack",
+  "command.feed.description": "Feed your pet a snack.",
+  "command.play.title": "Play game",
+  "command.play.description": "Play a quick game.",
+  "command.pet.title": "Pet",
+  "command.pet.description": "Give your pet some affection.",
+  "command.nap.title": "Let rest",
+  "command.nap.description": "Let your pet rest for 15 minutes.",
+  "command.status.title": "Check on pet",
+  "command.status.description": "Check how your pet is feeling.",
+
+  "speech.feed.0": "Thanks for the food!",
+  "speech.feed.1": "*munch munch munch*",
+  "speech.feed.2": "Yum, tasty!",
+  "speech.feed.3": "That was delicious!",
+
+  "speech.play.0": "That was fun!",
+  "speech.play.1": "Yay!",
+  "speech.play.2": "I love playing games!",
+  "speech.play.3": "Again!",
+
+  "speech.pet.0": "Purr...",
+  "speech.pet.1": "*nuzzles*",
+  "speech.pet.2": "Warm...",
+  "speech.pet.3": "So soft!",
+
+  "speech.nap.0": "Zzz...",
+  "speech.nap.1": "*curls up*",
+  "speech.nap.2": "Sleepy...",
+  "speech.nap.3": "Resting...",
+
+  "speech.levelup": "We're growing closer!",
+
+  "speech.status.sleeping": "Zzz... resting.",
+  "speech.status.hungry": "I'm a bit hungry.",
+  "speech.status.tired": "I'm feeling sleepy.",
+  "speech.status.bored": "I want to play.",
+  "speech.status.happy": "I'm feeling great!",
+  "speech.status.content": "I'm content.",
+
+  "nudge.hungry": "I'm getting a little hungry.",
+  "nudge.tired": "I'm getting sleepy.",
+  "nudge.bored": "Would you like to play?",
+  "nudge.neglected": "Could I have some attention?"
+}

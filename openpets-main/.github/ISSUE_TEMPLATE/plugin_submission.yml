@@ -1,0 +1,91 @@
+name: Community plugin submission
+description: Submit a community OpenPets plugin for catalog review.
+title: "Plugin submission: <plugin name>"
+labels: ["plugin-submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for submitting an OpenPets plugin. Please keep the plugin source public and tag an immutable release before submitting.
+
+        OpenPets reviews the source repository, then packages approved plugins into hash-pinned ZIPs for the catalog. Do not paste secrets, tokens, private keys, or user data into this issue.
+  - type: input
+    id: plugin_name
+    attributes:
+      label: Plugin name
+      description: The display name users will see in OpenPets.
+      placeholder: Hello Pet
+    validations:
+      required: true
+  - type: input
+    id: plugin_id
+    attributes:
+      label: Plugin ID
+      description: The stable manifest id from openpets.plugin.json.
+      placeholder: yourname.hello-pet
+    validations:
+      required: true
+  - type: input
+    id: repo_url
+    attributes:
+      label: Public GitHub repo URL
+      description: The repository that contains the plugin source.
+      placeholder: https://github.com/owner/repo
+    validations:
+      required: true
+  - type: input
+    id: plugin_subdirectory
+    attributes:
+      label: Plugin subdirectory
+      description: Use . if openpets.plugin.json is at the repository root.
+      placeholder: .
+    validations:
+      required: true
+  - type: input
+    id: release_ref
+    attributes:
+      label: Release tag or commit SHA
+      description: The immutable tag or full commit SHA you want reviewed.
+      placeholder: v1.0.0
+    validations:
+      required: true
+  - type: textarea
+    id: permissions
+    attributes:
+      label: Requested permissions
+      description: List every permission from openpets.plugin.json and why it is needed.
+      placeholder: |
+        - pet:speak: shows the configured greeting in a pet speech bubble.
+        - commands: adds one right-click command.
+    validations:
+      required: true
+  - type: textarea
+    id: network_hosts
+    attributes:
+      label: Network hosts
+      description: List every network.hosts entry and what it is used for. Write "None" if your plugin does not use network access.
+      placeholder: |
+        None
+    validations:
+      required: true
+  - type: textarea
+    id: external_setup
+    attributes:
+      label: External account setup
+      description: Explain any OAuth app, API key, account, or service setup users must complete. Write "None" if not applicable.
+      placeholder: None
+    validations:
+      required: true
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submit checklist
+      options:
+        - label: I ran `npx -y @open-pets/cli plugin validate .` or `openpets plugin validate <dir>` successfully.
+          required: true
+        - label: I ran the plugin's local tests successfully, if tests are included.
+          required: true
+        - label: The requested permissions and network hosts are the minimum needed.
+          required: true
+        - label: The repository does not contain secrets, tokens, private keys, or user data.
+          required: true

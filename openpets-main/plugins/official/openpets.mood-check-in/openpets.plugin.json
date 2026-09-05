@@ -1,0 +1,31 @@
+{
+  "manifestVersion": 3,
+  "id": "openpets.mood-check-in",
+  "name": "$t:plugin.name",
+  "description": "$t:plugin.description",
+  "version": "1.0.0",
+  "runtime": "javascript",
+  "icon": "heart",
+  "sdkVersion": "3.0.0",
+  "entry": "index.js",
+  "assets": {
+    "icons": {
+      "mood": "assets/mood.svg"
+    }
+  },
+  "permissions": [
+    "pet:speak",
+    "pet:interact",
+    "schedule",
+    "storage",
+    "commands"
+  ],
+  "configSchema": {
+    "checkInTime": {
+      "type": "time",
+      "default": "16:00",
+      "label": "$t:config.checkInTime.label",
+      "description": "$t:config.checkInTime.description"
+    }
+  }
+}

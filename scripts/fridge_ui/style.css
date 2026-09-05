@@ -1,0 +1,636 @@
+:root {
+  --ink: #24121b;
+  --cream: #fff4bc;
+  --gold: #e7ae43;
+  --orange: #b86727;
+  --shelf: #bdd4d3;
+  --green: #4a5d45;
+  --red: #a63d40;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background: transparent !important;
+  font-family: "Press Start 2P", monospace;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* --- HUD Top Bar --- */
+.hud-top {
+  position: fixed;
+  top: 14px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 999;
+  pointer-events: none;
+}
+
+.hud-pill {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(36, 18, 27, 0.88);
+  border: 3px solid #e7ae43;
+  color: #fff4bc;
+  padding: 8px 14px;
+  font-size: 8px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+.hud-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #52c41a;
+  box-shadow: 0 0 8px #52c41a;
+  animation: pulse-dot 1.8s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+}
+
+.hud-buttons {
+  pointer-events: auto;
+  display: flex;
+  gap: 8px;
+}
+
+.hud-btn {
+  background: #d58a36;
+  border: 3px solid #28191b;
+  color: #fff4bc;
+  font-family: "Press Start 2P", monospace;
+  font-size: 8px;
+  padding: 7px 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #28191b;
+  transition: transform 0.08s, background 0.12s;
+}
+
+.hud-btn:hover {
+  background: #e7ae43;
+  transform: translateY(-2px);
+}
+
+.hud-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 0 #28191b;
+}
+
+.hud-btn-red {
+  background: #a63d40;
+}
+.hud-btn-red:hover {
+  background: #bf4549;
+}
+
+/* --- Toast Banner --- */
+.toast-banner {
+  position: fixed;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  background: #24121b;
+  border: 3px solid #f5c35c;
+  color: #fff4bc;
+  padding: 10px 18px;
+  font-size: 9px;
+  line-height: 1.5;
+  z-index: 1000;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s, transform 0.25s;
+  text-align: center;
+  max-width: 680px;
+}
+
+.toast-banner.active {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* --- Game Area --- */
+.game {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  padding: 35px 24px;
+}
+
+/* --- Pixel Golden Fridge --- */
+.fridge {
+  width: 360px;
+  height: 535px;
+  position: relative;
+  filter: drop-shadow(13px 15px 0 rgba(74, 31, 24, 0.45));
+}
+
+.fridge-body {
+  height: 100%;
+  position: relative;
+  background: #d58a36;
+  border: 10px solid #28191b;
+  border-top-width: 12px;
+  box-shadow: inset 0 0 0 8px #f5c35c, inset 12px 0 #bf682b, inset -11px 0 #a84e26;
+}
+
+.top-cap {
+  height: 28px;
+  position: absolute;
+  left: 11px;
+  right: 11px;
+  top: -30px;
+  background: #ffe17e;
+  border: 6px solid #28191b;
+  border-bottom: 0;
+  box-shadow: inset 0 8px #f0b74e;
+}
+
+.interior {
+  position: absolute;
+  inset: 31px 25px 48px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, #b3622c 0 8%, #dfa64a 8% 91%, #9f4a26 91%);
+  border: 7px solid #9d4a26;
+  box-shadow: inset 0 0 0 7px #f4c662, inset 0 0 35px rgba(255, 244, 155, 0.55);
+  transition: opacity 0.12s 0.14s;
+}
+
+.inside-glow {
+  position: absolute;
+  inset: 0;
+  opacity: 0.32;
+  background: linear-gradient(130deg, transparent 45%, #fff2a2 45% 49%, transparent 49% 66%, #fff2a2 66% 71%, transparent 71%);
+}
+
+.close-door {
+  position: absolute;
+  z-index: 3;
+  top: 8px;
+  right: 8px;
+  padding: 5px 7px;
+  border: 3px solid #69301f;
+  color: #fff6bd;
+  background: #9d4a26;
+  font: 10px "Press Start 2P", monospace;
+  cursor: pointer;
+}
+
+.close-door:hover {
+  background: #71301f;
+}
+
+.shelves {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 13px 10px;
+  height: 100%;
+  padding: 14px 14px 20px;
+}
+
+.slot {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 0;
+  border-bottom: 9px solid #789495;
+  background: linear-gradient(transparent 77%, #d1e0d5 77% 88%, #819e9e 88%);
+  box-shadow: 0 7px 0 #5b6f73;
+  cursor: pointer;
+}
+
+.slot::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: -4px;
+  height: 7px;
+  background: repeating-linear-gradient(90deg, #d2e2dd 0 11px, transparent 11px 18px);
+}
+
+.slot.free:hover,
+.slot.drop-target {
+  background-color: rgba(255, 250, 190, 0.3);
+  outline: 3px dashed #fff4af;
+  outline-offset: -2px;
+}
+
+.door {
+  appearance: none;
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  transform-origin: right center;
+  border: 0;
+  cursor: pointer;
+  background: linear-gradient(90deg, #e7b84c 0 8%, #f0c955 8% 67%, #d88d36 67%);
+  border: 10px solid #28191b;
+  border-top-width: 12px;
+  box-shadow: inset 11px 0 #c3712c, inset -10px 0 #efa94a;
+  transition: transform 0.5s steps(5, end), opacity 0.2s;
+}
+
+.door::before {
+  content: "";
+  position: absolute;
+  inset: 9px 22px 42px 30px;
+  background: linear-gradient(132deg, transparent 45%, rgba(255, 245, 166, 0.48) 45% 49%, transparent 49% 61%, rgba(255, 245, 166, 0.37) 61% 66%, transparent 66%);
+}
+
+.door-shine {
+  position: absolute;
+  left: 35px;
+  top: 22px;
+  right: 30px;
+  height: 8px;
+  background: #ffe68a;
+}
+
+.handle {
+  position: absolute;
+  left: 37px;
+  top: 205px;
+  width: 111px;
+  height: 30px;
+  border: 8px solid #201b1d;
+  background: linear-gradient(#d3e2df 45%, #799596 45%);
+  box-shadow: inset 0 0 0 5px #f7f2c9, 0 6px 0 #9f552a;
+}
+
+.door-bottom {
+  position: absolute;
+  height: 43px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(90deg, #bd632a 0 31%, #d88835 31% 66%, #bd602c 66%);
+  border-top: 9px solid #7b3927;
+}
+
+.feet {
+  position: absolute;
+  z-index: -1;
+  width: 48px;
+  height: 23px;
+  bottom: -27px;
+  background: #25191c;
+  border: 6px solid #25191c;
+  box-shadow: inset 0 7px #c2d0c9;
+}
+.feet.left { left: 25px; }
+.feet.right { right: 25px; }
+
+.fridge.open .door {
+  transform: perspective(800px) rotateY(101deg);
+  opacity: 0.45;
+}
+.fridge.open .interior {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* --- Food Item Element --- */
+.food {
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 64px;
+  cursor: grab;
+  font-size: 38px;
+  line-height: 1;
+  filter: drop-shadow(3px 4px 0 rgba(80, 39, 25, 0.34));
+  transition: transform 0.12s steps(2, end);
+  user-select: none;
+  touch-action: none;
+  border: 0;
+  background: transparent;
+  position: relative;
+}
+
+.food:hover {
+  transform: translateY(-5px) scale(1.08);
+}
+
+.food.dragging {
+  position: fixed;
+  z-index: 1000;
+  margin: 0;
+  transform: translate(-50%, -50%) scale(1.35);
+  pointer-events: none;
+  cursor: grabbing;
+  filter: drop-shadow(7px 9px 0 rgba(80, 39, 25, 0.5));
+}
+
+.food-label-tag {
+  display: none;
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #24121b;
+  border: 2px solid #e7ae43;
+  color: #fff4bc;
+  font-size: 6px;
+  padding: 2px 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.food:hover .food-label-tag {
+  display: block;
+}
+
+/* --- Interactive Pet Stage (OpenPets Animated Sprite) --- */
+.pet-stage {
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  user-select: none;
+}
+
+/* OpenPets Speech Bubble */
+.pet-bubble {
+  position: relative;
+  max-width: 250px;
+  min-width: 170px;
+  background: rgba(15, 23, 42, 0.94);
+  border: 2px solid #e7ae43;
+  border-radius: 12px;
+  padding: 10px 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  margin-bottom: 14px;
+  color: #fff4bc;
+  font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-size: 11px;
+  line-height: 1.4;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.pet-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 12px;
+  height: 12px;
+  background: rgba(15, 23, 42, 0.94);
+  border-right: 2px solid #e7ae43;
+  border-bottom: 2px solid #e7ae43;
+}
+
+.bubble-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  border-bottom: 1px solid rgba(231, 174, 67, 0.3);
+  padding-bottom: 4px;
+}
+
+.bubble-tag {
+  font-family: "Press Start 2P", monospace;
+  font-size: 8px;
+  color: #e7ae43;
+  letter-spacing: 0.5px;
+}
+
+.bubble-badge {
+  font-size: 9px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: rgba(231, 174, 67, 0.2);
+  color: #fbd38d;
+  font-weight: 600;
+}
+
+.bubble-badge.eating {
+  background: rgba(82, 196, 26, 0.3);
+  color: #73d13d;
+}
+
+.bubble-text {
+  font-size: 11px;
+  color: #f1f5f9;
+  word-wrap: break-word;
+}
+
+/* Pet Character & Sprite */
+.pet-character {
+  width: 192px;
+  height: 208px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.pet-character:hover,
+.pet-character.drop-target {
+  transform: scale(1.08);
+}
+
+.pet-character.drop-target {
+  filter: drop-shadow(0 0 16px #52c41a);
+}
+
+.pet-character.eating {
+  animation: pet-bounce 0.5s ease;
+}
+
+@keyframes pet-bounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  35% { transform: translateY(-16px) scale(1.12); }
+  65% { transform: translateY(4px) scale(0.95); }
+}
+
+.pet-sprite {
+  width: 192px;
+  height: 208px;
+  background-image: url('assets/default-pet-spritesheet.webp');
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.pet-shadow {
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 14px;
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Sprite Animation States (Rows: 0=idle, 1=run-r, 2=run-l, 3=waving, 4=jumping, 5=failed, 6=waiting, 7=running, 8=review) */
+.pet-character[data-state="idle"] .pet-sprite {
+  background-position-y: 0px;
+  animation: pet-idle-anim 5.5s steps(6) infinite;
+}
+@keyframes pet-idle-anim {
+  from { background-position-x: 0px; }
+  to { background-position-x: -1152px; }
+}
+
+.pet-character[data-state="waiting"] .pet-sprite,
+.pet-character.drop-target .pet-sprite {
+  background-position-y: -1248px;
+  animation: pet-waiting-anim 1.0s steps(6) infinite;
+}
+@keyframes pet-waiting-anim {
+  from { background-position-x: 0px; }
+  to { background-position-x: -1152px; }
+}
+
+.pet-character[data-state="waving"] .pet-sprite {
+  background-position-y: -624px;
+  animation: pet-waving-anim 0.8s steps(4) infinite;
+}
+@keyframes pet-waving-anim {
+  from { background-position-x: 0px; }
+  to { background-position-x: -768px; }
+}
+
+.pet-character[data-state="jumping"] .pet-sprite,
+.pet-character.eating .pet-sprite {
+  background-position-y: -832px;
+  animation: pet-jumping-anim 0.9s steps(5) infinite;
+}
+@keyframes pet-jumping-anim {
+  from { background-position-x: 0px; }
+  to { background-position-x: -960px; }
+}
+
+.pet-character[data-state="review"] .pet-sprite {
+  background-position-y: -1664px;
+  animation: pet-review-anim 1.1s steps(6) infinite;
+}
+@keyframes pet-review-anim {
+  from { background-position-x: 0px; }
+  to { background-position-x: -1152px; }
+}
+
+/* Pet Nameplate */
+.pet-nameplate {
+  margin-top: 10px;
+  text-align: center;
+  background: rgba(36, 18, 27, 0.88);
+  border: 2px solid #e7ae43;
+  padding: 4px 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+.pet-nameplate .name {
+  display: block;
+  color: #fff4bc;
+  font-size: 8px;
+  letter-spacing: 0.5px;
+}
+
+.pet-nameplate .sub {
+  display: block;
+  color: #73d13d;
+  font-size: 6px;
+  margin-top: 2px;
+}
+
+/* --- On-screen Hand Cursor Dot --- */
+.hand-cursor {
+  position: fixed;
+  z-index: 10000;
+  width: 32px;
+  height: 32px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  display: none;
+  transition: width 0.1s, height 0.1s;
+}
+
+.hand-cursor.visible {
+  display: block;
+}
+
+.cursor-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid #e7ae43;
+  box-shadow: 0 0 8px #e7ae43;
+  transition: border-color 0.12s, transform 0.12s;
+}
+
+.cursor-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff4bc;
+  border-radius: 50%;
+  transition: background 0.12s, transform 0.12s;
+}
+
+.cursor-badge {
+  position: absolute;
+  left: 36px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #24121b;
+  border: 2px solid #e7ae43;
+  color: #fff4bc;
+  font-size: 7px;
+  padding: 2px 6px;
+  white-space: nowrap;
+}
+
+/* Cursor State: Pinch / Grab */
+.hand-cursor.pinching .cursor-ring {
+  border-color: #ff4d4f;
+  transform: scale(1.3);
+  box-shadow: 0 0 14px #ff4d4f;
+}
+.hand-cursor.pinching .cursor-dot {
+  background: #ff4d4f;
+  transform: translate(-50%, -50%) scale(1.4);
+}
+.hand-cursor.pinching .cursor-badge {
+  border-color: #ff4d4f;
+  color: #ff7875;
+}
+
+/* Cursor State: Palm Close */
+.hand-cursor.palm-close .cursor-ring {
+  border-color: #52c41a;
+  transform: scale(1.5);
+  box-shadow: 0 0 18px #52c41a;
+}

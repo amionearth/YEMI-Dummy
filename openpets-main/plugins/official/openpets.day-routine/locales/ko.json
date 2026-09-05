@@ -1,0 +1,21 @@
+{
+  "plugin.name": "아침과 저녁 루틴",
+  "plugin.description": "하루의 시작과 마무리를 반려동물과 부드럽게 확인해요.",
+  "config.morningTime.label": "아침 시간",
+  "config.morningTime.description": "아침 인사를 보여줄 현지 시간입니다.",
+  "config.eveningTime.label": "저녁 시간",
+  "config.eveningTime.description": "저녁 마무리 인사를 보여줄 현지 시간입니다.",
+  "config.enableMorning.label": "아침 켜기",
+  "config.enableMorning.description": "매일 아침 인사를 보여줍니다.",
+  "config.enableEvening.label": "저녁 켜기",
+  "config.enableEvening.description": "매일 저녁 마무리 인사를 보여줍니다.",
+  "command.morningNow.title": "지금 아침 인사",
+  "command.morningNow.description": "오늘의 아침 인사를 한 번 보여줍니다.",
+  "command.eveningNow.title": "지금 저녁 인사",
+  "command.eveningNow.description": "오늘의 저녁 마무리 인사를 한 번 보여줍니다.",
+  "command.pauseToday.title": "오늘 쉬기",
+  "command.pauseToday.description": "내일까지 루틴 알림을 건너뜁니다.",
+  "speech.morning": "좋은 아침이에요. 가벼운 첫걸음으로 하루를 천천히 열어봐요.",
+  "speech.evening": "저녁 확인이에요. 이제 오늘을 내려놓고 쉬어도 괜찮아요.",
+  "speech.paused": "오늘은 쉬어갈게요. 내일 다시 찾아올게요."
+}

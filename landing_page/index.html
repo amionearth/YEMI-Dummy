@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="YEMI is a tiny desktop pet with a local AI brain and an ESP32 body.">
+  <title>YEMI — a pet that learns by eating</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Source+Serif+4:wght@400;500;600&family=Special+Elite&display=swap" rel="stylesheet">
+  <style>
+    :root { --paper:#e9e0c8; --shadow:#c9ba90; --ink:#223148; --rust:#af492f; --moss:#52633e; --graphite:#5b5648; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--paper); font:1.06rem/1.68 'Source Serif 4', serif; overflow-x:hidden; }
+    body::before { content:""; position:fixed; inset:0; pointer-events:none; z-index:2; opacity:.045; mix-blend-mode:multiply; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+    h1,h2,h3 { margin:0; font-family:Fraunces,serif; line-height:1.1; } a { color:var(--ink); } .wrap { width:min(980px, calc(100% - 3rem)); margin:auto; }
+    .stamp { font-family:'Special Elite',monospace; letter-spacing:.05em; color:var(--rust); }
+    .tear { position:fixed; z-index:10; inset:0; background:var(--paper); pointer-events:none; animation:lift 1s .1s cubic-bezier(.6,0,.3,1) forwards; clip-path:polygon(0 0,100% 0,100% 92%,94% 96%,87% 91%,80% 97%,73% 91%,67% 96%,60% 90%,53% 97%,45% 91%,38% 96%,31% 90%,23% 97%,15% 91%,8% 96%,0 91%); } @keyframes lift { to { transform:translateY(-110%); } }
+    .hero { padding:5.5rem 0 3.5rem; } .tag { display:inline-block; border:1px solid var(--rust); padding:.22rem .62rem; transform:rotate(-2deg); font-size:.8rem; }
+    .hero-grid { display:grid; grid-template-columns:1fr minmax(250px, .72fr); gap:3rem; align-items:center; margin-top:1.5rem; } h1 { font-size:clamp(3rem,8vw,5.35rem); max-width:9ch; }
+    .subhead { max-width:48ch; margin:1.35rem 0 0; color:var(--graphite); font-size:1.17rem; } .actions { display:flex; gap:.8rem; flex-wrap:wrap; margin-top:2rem; }
+    .btn { display:inline-block; border:1.5px solid var(--ink); padding:.68rem 1.2rem; text-decoration:none; transition:.18s ease; } .btn:hover { background:var(--ink); color:var(--paper); } .btn.primary { background:var(--ink); color:var(--paper); } .btn.primary:hover { background:var(--rust); border-color:var(--rust); }
+    .photo { position:relative; max-width:330px; justify-self:end; padding:.55rem .55rem 2rem; background:#fffdf6; border:1px solid var(--graphite); box-shadow:10px 12px 0 rgba(91,86,72,.12); transform:rotate(2deg); } .photo img { display:block; width:100%; aspect-ratio:3/4; object-fit:cover; } .photo figcaption { margin-top:.45rem; text-align:center; font:1.18rem Caveat,cursive; color:var(--graphite); }
+    .notes { border-block:1.5px solid var(--graphite); margin:1rem 0 3rem; padding:1.1rem 0; } .notes p { margin:.35rem 0 0; font-family:'Special Elite',monospace; min-height:1.5em; }
+    section { padding:2.2rem 0 4.5rem; } h2 { font-size:clamp(1.8rem,5vw,2.8rem); max-width:18ch; margin-bottom:2.35rem; } .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; } .card { position:relative; padding:1.5rem 1.35rem; background:var(--shadow); border:1.5px solid var(--ink); } .card:nth-child(1){transform:rotate(-1.4deg)} .card:nth-child(2){transform:rotate(1deg)} .card:nth-child(3){transform:rotate(-.7deg)} .card::before { content:""; position:absolute; width:44px; height:15px; top:-9px; left:calc(50% - 22px); background:#af492f61; transform:rotate(-4deg); } .card h3 { font-size:1.25rem; margin-bottom:.55rem; } .card p,.step p { margin:0; color:var(--graphite); font-size:.98rem; }
+    .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; } .step { border-top:3px solid var(--ink); padding-top:1rem; } .num { font-family:'Special Elite',monospace; color:var(--rust); } .step h3 { margin:.35rem 0 .55rem; font-size:1.22rem; }
+    .hardware { display:grid; grid-template-columns:.9fr 1.1fr; gap:2rem; align-items:start; background:#d9ccaa; border:1.5px solid var(--ink); padding:clamp(1.25rem,4vw,2.5rem); } .hardware h2 { margin-bottom:1rem; } .pin-list { list-style:none; margin:0; padding:0; } .pin-list li { border-bottom:1px dashed var(--graphite); padding:.6rem 0; } .pin-list span { font-family:'Special Elite',monospace; color:var(--rust); }
+    footer { border-top:2px dashed var(--graphite); padding:2.5rem 0 3rem; color:var(--graphite); } .log { display:inline-block; border:1px solid var(--ink); padding:.7rem 1rem; text-decoration:none; } .log:hover { background:var(--ink); color:var(--paper); }
+    @media (max-width:720px) { .hero { padding-top:3.5rem; } .hero-grid,.hardware { grid-template-columns:1fr; gap:2rem; } .photo { justify-self:start; max-width:280px; } .cards,.steps { grid-template-columns:1fr; gap:1.6rem; } .card { transform:none !important; } }
+    @media (prefers-reduced-motion:reduce) { .tear { display:none; } }
+  </style>
+</head>
+<body>
+  <div class="tear" aria-hidden="true"></div>
+  <main class="wrap">
+    <header class="hero">
+      <span class="tag stamp">SPECIMEN NO. 01 · YEMI</span>
+      <div class="hero-grid">
+        <div>
+          <h1>It learns by eating.</h1>
+          <p class="subhead">YEMI is a small, slightly silly desktop pet with a local AI brain and a physical ESP32 body. Feed it your notes, keep it happy, and watch it slowly become itself.</p>
+          <div class="actions"><a class="btn primary" href="../journal_files/index.html">Read the build journal</a><a class="btn" href="#grows">How YEMI grows</a></div>
+        </div>
+        <figure class="photo"><img src="image/product_demo.jpg" alt="A small owl-like ESP32 robot prototype on a work desk"><figcaption>prototype, ears up and listening</figcaption></figure>
+      </div>
+    </header>
+    <div class="notes"><div class="stamp">— overheard from YEMI —</div><p id="thought">my stomach is making noises... feed me something?</p></div>
+    <section>
+      <h2>Three things worth knowing about this little creature</h2>
+      <div class="cards"><article class="card"><h3>It stays local</h3><p>YEMI uses a local Ollama model. Its thoughts stay on the same machine where it lives.</p></article><article class="card"><h3>It remembers snacks</h3><p>Notes, lessons, and games live in separate memory pools. Its personality grows from what you give it.</p></article><article class="card"><h3>It has a real body</h3><p>An ESP32 runs its OLED face, moving ears, and touch sensor—so a pet on screen can react in your hands.</p></article></div>
+    </section>
+    <section id="grows"><h2>How a thought becomes part of YEMI</h2><div class="steps"><article class="step"><span class="num">01 — FEED</span><h3>Drop in a note</h3><p>Use the golden fridge to offer YEMI a study note, file, or idea.</p></article><article class="step"><span class="num">02 — DIGEST</span><h3>Let it remember</h3><p>It reacts with local AI, then stores that snack with its other memories.</p></article><article class="step"><span class="num">03 — GROW</span><h3>Meet the new YEMI</h3><p>During a growth cycle, it rereads its memory and rewrites who it is becoming.</p></article></div></section>
+    <section class="hardware"><div><span class="stamp">PHYSICAL BODY · ESP32</span><h2>Pet it. It notices.</h2><p>The desktop companion is connected to an OLED face, servo ears, and a touch sensor. When YEMI is sad, touch can make it feel safe again.</p></div><ul class="pin-list"><li><span>GPIO 13</span> — 20° servo ear sweep</li><li><span>GPIO 32</span> — touch sensor / comfort input</li><li><span>GPIO 21 + 22</span> — OLED data and clock</li><li><span>COM6</span> — live desktop-to-body bridge</li></ul></section>
+  </main>
+  <footer><div class="wrap"><a class="log" href="../journal_files/index.html"><span class="stamp">FIELD LOG</span><br>See how YEMI was made →</a><p>Built for TinkerHub Useless Projects. It solves nothing on purpose.</p></div></footer>
+  <script>
+    const thoughts=["my stomach is making noises... feed me something?","i don't know that word yet. teach me more.","i have been thinking about yesterday's snack.","bored. want to play something?"];
+    const thought=document.getElementById('thought'); let i=0;
+    if(!matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(()=>{ i=(i+1)%thoughts.length; thought.textContent=thoughts[i]; },4200);
+  </script>
+</body>
+</html>

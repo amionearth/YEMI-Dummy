@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Floating Desktop Pet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: transparent !important;
+    user-select: none;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  .stage {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 8px;
+    position: relative;
+  }
+
+  /* OpenPets Floating Speech Bubble */
+  .pet-bubble {
+    position: relative;
+    max-width: 230px;
+    min-width: 150px;
+    background: rgba(15, 23, 42, 0.94);
+    border: 2px solid #e7ae43;
+    border-radius: 12px;
+    padding: 8px 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    margin-bottom: 12px;
+    color: #fff4bc;
+    font-size: 11px;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+  }
+
+  .pet-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 11px;
+    height: 11px;
+    background: rgba(15, 23, 42, 0.94);
+    border-right: 2px solid #e7ae43;
+    border-bottom: 2px solid #e7ae43;
+  }
+
+  .bubble-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+    border-bottom: 1px solid rgba(231, 174, 67, 0.3);
+    padding-bottom: 3px;
+  }
+
+  .bubble-tag {
+    font-family: "Press Start 2P", monospace;
+    font-size: 7px;
+    color: #e7ae43;
+    letter-spacing: 0.5px;
+  }
+
+  .bubble-badge {
+    font-size: 8px;
+    padding: 1px 5px;
+    border-radius: 999px;
+    background: rgba(231, 174, 67, 0.2);
+    color: #fbd38d;
+    font-weight: 700;
+  }
+
+  .bubble-badge.hungry {
+    background: rgba(239, 68, 68, 0.25);
+    color: #f87171;
+    animation: pulse-hungry 1s infinite alternate;
+  }
+
+  @keyframes pulse-hungry {
+    from { opacity: 0.8; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1.04); }
+  }
+
+  .bubble-badge.happy {
+    background: rgba(16, 185, 129, 0.25);
+    color: #34d399;
+  }
+
+  .bubble-text {
+    font-size: 11px;
+    color: #f1f5f9;
+    word-wrap: break-word;
+  }
+
+  /* Pet Sprite Box */
+  .pet-character {
+    width: 192px;
+    height: 208px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+  }
+
+  .pet-character:hover {
+    transform: scale(1.05);
+  }
+
+  .pet-character:active {
+    transform: scale(0.97);
+  }
+
+  .pet-sprite {
+    width: 192px;
+    height: 208px;
+    background-image: url('assets/default-pet-spritesheet.webp');
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+  }
+
+  .pet-shadow {
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95px;
+    height: 12px;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  /* Animation States */
+  .pet-character[data-state="idle"] .pet-sprite {
+    background-position-y: 0px;
+    animation: pet-idle-anim 5.5s steps(6) infinite;
+  }
+  @keyframes pet-idle-anim {
+    from { background-position-x: 0px; }
+    to { background-position-x: -1152px; }
+  }
+
+  .pet-character[data-state="waiting"] .pet-sprite {
+    background-position-y: -1248px;
+    animation: pet-waiting-anim 1.0s steps(6) infinite;
+  }
+  @keyframes pet-waiting-anim {
+    from { background-position-x: 0px; }
+    to { background-position-x: -1152px; }
+  }
+
+  .pet-character[data-state="waving"] .pet-sprite {
+    background-position-y: -624px;
+    animation: pet-waving-anim 0.8s steps(4) infinite;
+  }
+  @keyframes pet-waving-anim {
+    from { background-position-x: 0px; }
+    to { background-position-x: -768px; }
+  }
+
+  .pet-character[data-state="jumping"] .pet-sprite {
+    background-position-y: -832px;
+    animation: pet-jumping-anim 0.9s steps(5) infinite;
+  }
+  @keyframes pet-jumping-anim {
+    from { background-position-x: 0px; }
+    to { background-position-x: -960px; }
+  }
+
+  .pet-character[data-state="failed"] .pet-sprite {
+    background-position-y: -1040px;
+    animation: pet-failed-anim 1.2s steps(8) infinite;
+  }
+  @keyframes pet-failed-anim {
+    from { background-position-x: 0px; }
+    to { background-position-x: -1536px; }
+  }
+
+  .pet-character[data-state="review"] .pet-sprite {
+    background-position-y: -1664px;
+    animation: pet-review-anim 1.1s steps(6) infinite;
+  }
+  @keyframes pet-review-anim {
+    from { background-position-x: 0px; }
+    to { background-position-x: -1152px; }
+  }
+
+  /* Nameplate */
+  .pet-nameplate {
+    margin-top: 6px;
+    text-align: center;
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid #e7ae43;
+    border-radius: 8px;
+    padding: 3px 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  .pet-nameplate .name {
+    font-family: "Press Start 2P", monospace;
+    font-size: 7px;
+    color: #e7ae43;
+    display: block;
+  }
+
+  .pet-nameplate .sub {
+    font-size: 8px;
+    color: #94a3b8;
+    margin-top: 2px;
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div id="pet-bubble" class="pet-bubble" title="Click to feed Tink!">
+    <div class="bubble-header">
+      <span class="bubble-tag">TINK</span>
+      <span id="pet-mood-badge" class="bubble-badge">IDLE</span>
+    </div>
+    <div id="pet-bubble-text" class="bubble-text">Hi friend! Click me to open the fridge! 🐾</div>
+  </div>
+
+  <div id="pet-character" class="pet-character" data-state="idle" title="Click to open Golden Fridge!">
+    <div class="pet-sprite"></div>
+    <div class="pet-shadow"></div>
+  </div>
+
+  <div id="pet-nameplate" class="pet-nameplate" title="Click to open Golden Fridge!">
+    <span class="name">TINK</span>
+    <span class="sub" id="pet-nameplate-sub">CLICK TO FEED</span>
+  </div>
+</div>
+
+<script>
+(function() {
+  const petCharacter = document.getElementById('pet-character');
+  const petBubble = document.getElementById('pet-bubble');
+  const petBubbleText = document.getElementById('pet-bubble-text');
+  const petMoodBadge = document.getElementById('pet-mood-badge');
+  const petNameplate = document.getElementById('pet-nameplate');
+  const petNameplateSub = document.getElementById('pet-nameplate-sub');
+
+  function openFridge() {
+    document.title = 'PYACTION:OPEN_FRIDGE:' + Date.now();
+  }
+
+  petCharacter.addEventListener('click', openFridge);
+  petBubble.addEventListener('click', openFridge);
+  petNameplate.addEventListener('click', openFridge);
+
+  // Called from Python
+  window.updatePet = function(data) {
+    if (data.state && petCharacter) {
+      petCharacter.dataset.state = data.state;
+    }
+    if (data.message && petBubbleText) {
+      petBubbleText.textContent = data.message;
+    }
+    if (data.mood && petMoodBadge) {
+      petMoodBadge.textContent = data.mood;
+      petMoodBadge.className = 'bubble-badge ' + (data.mood.toLowerCase());
+    }
+    if (data.sub && petNameplateSub) {
+      petNameplateSub.textContent = data.sub;
+    }
+  };
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "plugin.name": "Water Reminder",
+  "plugin.description": "A gentle pet nudge to take a water break.",
+  "config.pace.label": "Reminder pace",
+  "config.pace.description": "Choose how often your pet checks in.",
+  "config.pace.gentle": "Gentle",
+  "config.pace.normal": "Normal",
+  "config.pace.often": "Often",
+  "config.customSound.label": "Custom sound",
+  "config.customSound.description": "Optional sound to play with the reminder.",
+  "indicator.water": "Water reminder",
+  "command.testReminder.title": "Test reminder",
+  "command.testReminder.description": "Show a water reminder now so you can check the message and sound.",
+  "command.drinkNow.title": "I drank water",
+  "command.drinkNow.description": "Mark a water break now.",
+  "command.pauseToday.title": "Pause for today",
+  "command.pauseToday.description": "Skip water reminders until tomorrow.",
+  "bubble.reminder": "Water break? A few sips would be nice.",
+  "action.done": "Done",
+  "action.later": "Later",
+  "speech.done": "Nice. I’ll check in again later.",
+  "speech.paused": "Paused for today. I’ll remind you tomorrow."
+}

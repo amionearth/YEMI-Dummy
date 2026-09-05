@@ -1,0 +1,48 @@
+{
+  "manifestVersion": 3,
+  "id": "openpets.launch-buddy",
+  "name": "$t:plugin.name",
+  "description": "$t:plugin.description",
+  "version": "1.0.0",
+  "runtime": "javascript",
+  "icon": "sparkles",
+  "sdkVersion": "3.0.0",
+  "entry": "index.js",
+  "assets": {
+    "icons": {
+      "launchbuddy": "assets/launch-buddy.svg"
+    }
+  },
+  "permissions": ["pet:speak", "pet:reaction", "audio", "schedule", "storage", "commands"],
+  "configSchema": {
+    "enabled": { "type": "boolean", "default": true, "label": "$t:config.enabled.label", "description": "$t:config.enabled.description" },
+    "greetingMode": { "type": "select", "default": "custom", "label": "$t:config.greetingMode.label", "description": "$t:config.greetingMode.description", "options": [
+      { "value": "smart", "label": "$t:config.greetingMode.smart" },
+      { "value": "custom", "label": "$t:config.greetingMode.custom" },
+      { "value": "random", "label": "$t:config.greetingMode.random" }
+    ] },
+    "customMessage": { "type": "textarea", "default": "$t:message.defaultCustom", "label": "$t:config.customMessage.label", "description": "$t:config.customMessage.description" },
+    "messageList": { "type": "textarea", "default": "", "label": "$t:config.messageList.label", "description": "$t:config.messageList.description" },
+    "frequency": { "type": "select", "default": "everyLaunch", "label": "$t:config.frequency.label", "description": "$t:config.frequency.description", "options": [
+      { "value": "everyLaunch", "label": "$t:config.frequency.everyLaunch" },
+      { "value": "oncePerDay", "label": "$t:config.frequency.oncePerDay" },
+      { "value": "afterAwayHours", "label": "$t:config.frequency.afterAwayHours" }
+    ] },
+    "awayHours": { "type": "number", "default": 6, "min": 1, "max": 72, "label": "$t:config.awayHours.label", "description": "$t:config.awayHours.description" },
+    "delaySeconds": { "type": "number", "default": 3, "min": 0, "max": 60, "label": "$t:config.delaySeconds.label", "description": "$t:config.delaySeconds.description" },
+    "reaction": { "type": "select", "default": "waving", "label": "$t:config.reaction.label", "description": "$t:config.reaction.description", "options": [
+      { "value": "waving", "label": "$t:config.reaction.waving" },
+      { "value": "celebrating", "label": "$t:config.reaction.celebrating" },
+      { "value": "thinking", "label": "$t:config.reaction.thinking" },
+      { "value": "success", "label": "$t:config.reaction.success" },
+      { "value": "none", "label": "$t:config.reaction.none" }
+    ] },
+    "soundEnabled": { "type": "boolean", "default": true, "label": "$t:config.soundEnabled.label", "description": "$t:config.soundEnabled.description" },
+    "soundChoice": { "type": "select", "default": "chime", "label": "$t:config.soundChoice.label", "description": "$t:config.soundChoice.description", "options": [
+      { "value": "chime", "label": "$t:config.soundChoice.chime" },
+      { "value": "success", "label": "$t:config.soundChoice.success" },
+      { "value": "custom", "label": "$t:config.soundChoice.custom" }
+    ] },
+    "customSound": { "type": "sound", "label": "$t:config.customSound.label", "description": "$t:config.customSound.description" }
+  }
+}

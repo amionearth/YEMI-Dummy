@@ -1,0 +1,42 @@
+# Core ML stack (CPU-friendly; no NVIDIA GPU required)
+torch>=2.3.0
+transformers>=4.44.0
+peft>=0.11.0
+accelerate>=0.33.0
+datasets>=2.20.0
+safetensors>=0.4.3
+sentencepiece>=0.2.0
+protobuf>=5.27.0
+huggingface-hub>=0.24.0
+einops>=0.8.0
+numpy>=1.26.0
+
+# bitsandbytes: optional, for 4-bit base model loading. If install fails on
+# your Windows/CPU build, just drop it — the brain falls back to fp16.
+bitsandbytes>=0.43.0
+
+# Dashboard backend
+fastapi>=0.111.0
+uvicorn[standard]>=0.30.0
+pydantic>=2.7.0
+python-multipart>=0.0.9  # for /api/feed/file uploads
+
+# Hardware bridge (ESP32 over USB serial)
+pyserial>=3.5
+
+# Webcam feeder (OpenCV/ML pipeline for physical feeding)
+opencv-python>=4.9
+easyocr>=1.7
+# Floating file-backed fridge: camera gesture input + tray indicator
+mediapipe>=0.10,<1.0.0
+pystray>=0.19
+watchdog>=4.0
+
+# USB pet bridge and optional camera feeding mini-game
+pyserial>=3.5
+opencv-python>=4.10.0
+Pillow>=10.4.0
+# Optional for handwritten-note OCR in scripts/webcam_feeder.py:
+# easyocr>=1.7.0
+# MediaPipe is optional. Install it when you want hand landmark tracking:
+# pip install mediapipe

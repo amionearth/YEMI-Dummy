@@ -1,0 +1,142 @@
+name: Sign Windows desktop with SignPath
+
+on:
+  workflow_dispatch:
+    inputs:
+      signing_policy_slug:
+        description: "SignPath signing policy slug, e.g. test-signing or release-signing"
+        required: true
+        type: string
+      artifact_configuration_app_exe_slug:
+        description: "Artifact configuration slug for the unpacked app exe ZIP"
+        required: true
+        type: string
+      artifact_configuration_installer_slug:
+        description: "Artifact configuration slug for the NSIS installer ZIP"
+        required: true
+        type: string
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  build-and-sign-windows:
+    name: Build and Sign Windows x64
+    runs-on: windows-latest
+    timeout-minutes: 90
+
+    env:
+      SIGNPATH_ORGANIZATION_ID: ${{ vars.SIGNPATH_ORGANIZATION_ID }}
+      SIGNPATH_PROJECT_SLUG: ${{ vars.SIGNPATH_PROJECT_SLUG }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build desktop dependencies
+        shell: bash
+        run: pnpm --filter '@open-pets/desktop^...' build
+
+      - name: Build desktop bundles
+        shell: bash
+        run: |
+          pnpm --dir apps/desktop exec tsc
+          pnpm --dir apps/desktop exec vite build
+
+      - name: Clean package output
+        run: node apps/desktop/scripts/clean-package-output.cjs
+
+      - name: Build unpacked Windows app
+        run: pnpm --dir apps/desktop exec electron-builder --win dir --x64 --publish never
+
+      - name: Upload unsigned app executable
+        id: upload-unsigned-app-exe
+        uses: actions/upload-artifact@v4
+        with:
+          name: unsigned-openpets-app-exe
+          path: apps/desktop/dist-electron/win-unpacked/openpets.exe
+          if-no-files-found: error
+
+      - name: Submit app executable signing request
+        uses: signpath/github-action-submit-signing-request@v2
+        with:
+          api-token: ${{ secrets.SIGNPATH_API_TOKEN }}
+          organization-id: ${{ env.SIGNPATH_ORGANIZATION_ID }}
+          project-slug: ${{ env.SIGNPATH_PROJECT_SLUG }}
+          signing-policy-slug: ${{ inputs.signing_policy_slug }}
+          artifact-configuration-slug: ${{ inputs.artifact_configuration_app_exe_slug }}
+          github-artifact-id: ${{ steps.upload-unsigned-app-exe.outputs.artifact-id }}
+          wait-for-completion: true
+          output-artifact-directory: signed-app-exe
+          parameters: |
+            version: "${{ github.ref_name }}"
+
+      - name: Replace app executable with signed executable
+        shell: pwsh
+        run: |
+          $signedExe = Get-ChildItem -Path signed-app-exe -Recurse -Filter openpets.exe | Select-Object -First 1
+          if (-not $signedExe) { throw "Signed openpets.exe was not returned by SignPath." }
+          Copy-Item -Path $signedExe.FullName -Destination apps/desktop/dist-electron/win-unpacked/openpets.exe -Force
+
+      - name: Build NSIS installer from signed app
+        run: pnpm --dir apps/desktop exec electron-builder --win nsis --x64 --prepackaged dist-electron/win-unpacked --publish never
+
+      - name: Locate unsigned installer
+        id: locate-installer
+        shell: pwsh
+        run: |
+          $installer = Get-ChildItem -Path apps/desktop/dist-electron -Filter "OpenPets-*-win-x64-setup.exe" | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+          if (-not $installer) { throw "No Windows NSIS installer was produced." }
+          "installer_path=$($installer.FullName)" >> $env:GITHUB_OUTPUT
+          "installer_name=$($installer.Name)" >> $env:GITHUB_OUTPUT
+
+      - name: Upload unsigned installer
+        id: upload-unsigned-installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: unsigned-openpets-windows-installer
+          path: ${{ steps.locate-installer.outputs.installer_path }}
+          if-no-files-found: error
+
+      - name: Submit installer signing request
+        uses: signpath/github-action-submit-signing-request@v2
+        with:
+          api-token: ${{ secrets.SIGNPATH_API_TOKEN }}
+          organization-id: ${{ env.SIGNPATH_ORGANIZATION_ID }}
+          project-slug: ${{ env.SIGNPATH_PROJECT_SLUG }}
+          signing-policy-slug: ${{ inputs.signing_policy_slug }}
+          artifact-configuration-slug: ${{ inputs.artifact_configuration_installer_slug }}
+          github-artifact-id: ${{ steps.upload-unsigned-installer.outputs.artifact-id }}
+          wait-for-completion: true
+          output-artifact-directory: signed-installer
+          parameters: |
+            version: "${{ github.ref_name }}"
+
+      - name: Collect signed installer
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Path signed-release -Force | Out-Null
+          $signedInstaller = Get-ChildItem -Path signed-installer -Recurse -Filter "OpenPets-*-win-x64-setup.exe" | Select-Object -First 1
+          if (-not $signedInstaller) { throw "Signed Windows installer was not returned by SignPath." }
+          Copy-Item -Path $signedInstaller.FullName -Destination "signed-release/$($signedInstaller.Name)" -Force
+          Get-FileHash "signed-release/$($signedInstaller.Name)" -Algorithm SHA256 | ForEach-Object { "$($_.Hash.ToLowerInvariant())  $($signedInstaller.Name)" } | Set-Content -NoNewline signed-release/SHA256SUMS.windows.txt
+
+      - name: Upload signed Windows release artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: signed-openpets-windows-x64
+          path: signed-release/*
+          if-no-files-found: error

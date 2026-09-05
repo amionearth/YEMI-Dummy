@@ -1,0 +1,21 @@
+{
+  "plugin.name": "朝と夜のルーティン",
+  "plugin.description": "一日の始まりと終わりに、ペットがやさしく声をかけます。",
+  "config.morningTime.label": "朝の時刻",
+  "config.morningTime.description": "朝のあいさつを出すローカル時刻です。",
+  "config.eveningTime.label": "夜の時刻",
+  "config.eveningTime.description": "夜の声かけを出すローカル時刻です。",
+  "config.enableMorning.label": "朝を有効にする",
+  "config.enableMorning.description": "毎日、朝のあいさつを表示します。",
+  "config.enableEvening.label": "夜を有効にする",
+  "config.enableEvening.description": "毎日、夜の声かけを表示します。",
+  "command.morningNow.title": "今、朝のあいさつ",
+  "command.morningNow.description": "今日の朝のあいさつを一度だけ表示します。",
+  "command.eveningNow.title": "今、夜の声かけ",
+  "command.eveningNow.description": "今日の夜の声かけを一度だけ表示します。",
+  "command.pauseToday.title": "今日は一時停止",
+  "command.pauseToday.description": "明日までルーティンの声かけを休みます。",
+  "speech.morning": "おはようございます。やさしい一歩から、今日を始めましょう。",
+  "speech.evening": "夜のチェックインです。今日はもう手放して、休んで大丈夫です。",
+  "speech.paused": "今日は一時停止しました。明日また声をかけます。"
+}

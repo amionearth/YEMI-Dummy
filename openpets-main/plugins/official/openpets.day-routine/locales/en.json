@@ -1,0 +1,21 @@
+{
+  "plugin.name": "Morning & Evening Routine",
+  "plugin.description": "Gentle daily check-ins to start and close your day with your pet.",
+  "config.morningTime.label": "Morning time",
+  "config.morningTime.description": "Local time for the morning greeting.",
+  "config.eveningTime.label": "Evening time",
+  "config.eveningTime.description": "Local time for the evening sign-off.",
+  "config.enableMorning.label": "Enable morning",
+  "config.enableMorning.description": "Show the morning greeting each day.",
+  "config.enableEvening.label": "Enable evening",
+  "config.enableEvening.description": "Show the evening sign-off each day.",
+  "command.morningNow.title": "Morning greeting now",
+  "command.morningNow.description": "Show today's morning greeting once.",
+  "command.eveningNow.title": "Evening sign-off now",
+  "command.eveningNow.description": "Show today's evening sign-off once.",
+  "command.pauseToday.title": "Pause today",
+  "command.pauseToday.description": "Skip routine check-ins until tomorrow.",
+  "speech.morning": "Good morning. Take a soft first step into the day.",
+  "speech.evening": "Evening check-in. You can set today down now and rest.",
+  "speech.paused": "Paused for today. I’ll check in again tomorrow."
+}

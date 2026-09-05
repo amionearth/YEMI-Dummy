@@ -1,0 +1,9 @@
+{
+  "plugin.name": "日曆航空郵件", "plugin.description": "透過所選信使以航空郵件方式傳送 Google 日曆活動提醒。",
+  "config.courier.label": "航空郵件信使", "config.courier.description": "選擇負責遞送日曆航空郵件的信使。",
+  "config.courier.airdog": "飛天狗", "config.courier.owl": "貓頭鷹", "config.courier.dragon": "龍", "config.courier.cloud": "雲朵", "config.courier.bat": "蝙蝠", "config.courier.bee": "蜜蜂", "config.courier.bear-balloon": "氣球熊", "config.courier.pig-plane": "飛行員豬", "config.courier.owl-scout": "偵察貓頭鷹", "config.courier.firefly": "螢火蟲", "config.courier.duck-glider": "滑翔鴨", "config.courier.dog-helicopter": "信鴿 2", "config.courier.cat-balloon": "氣球貓", "config.courier.pigeon": "信鴿",
+  "command.connect.title": "連接 Google 日曆", "command.connect.description": "登入 Google，並允許對主要日曆的唯讀存取。", "command.sync.title": "立即同步", "command.sync.description": "立即從主要 Google 日曆取得即將開始的活動。", "command.disconnect.title": "中斷 Google 日曆連接", "command.disconnect.description": "從 OpenPets 移除 Google 日曆連接。", "command.test.title": "測試遞送", "command.test.description": "使用所選信使傳送一封範例日曆航空郵件。",
+  "menu.todayCount": "今天還有 {count} 個活動", "menu.todayNext": "下一項：{time} 的 {title}（{countdown}）",
+  "status.disconnected": "Google 日曆尚未連接。", "status.connected": "Google 日曆已連接。", "status.syncedNext": "日曆已同步：{count} 個即將開始的活動。下一項：{startAt} 的 {title}。航空郵件提醒將於 {reminderAt} 傳送。", "status.syncedEmpty": "日曆已同步：找不到即將開始的活動。", "status.noReminder": "沒有更多待傳送的提醒", "status.reconnect": "需要重新連接 Google 日曆。", "status.accessDenied": "Calendar API 存取遭拒。請檢查 Google Calendar API 和帳戶存取權，然後再次同步。", "status.offline": "日曆暫時無法使用；將保留現有遞送。", "status.cap": "日曆同步已達到活動數量上限；已保留現有遞送。", "status.error": "無法完成日曆同步。",
+  "delivery.title": "日曆：{title}", "delivery.starts": "現在開始", "delivery.startsIn": "{minutes} 分鐘後開始", "delivery.testTitle": "日曆航空郵件測試", "delivery.testDetail": "你的信使已準備好遞送日曆提醒。", "error.notConnected": "請先連接 Google 日曆，再同步。"
+}

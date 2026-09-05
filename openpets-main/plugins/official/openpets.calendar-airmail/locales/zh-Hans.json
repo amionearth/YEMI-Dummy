@@ -1,0 +1,9 @@
+{
+  "plugin.name": "日历航空邮件", "plugin.description": "通过所选信使以航空邮件方式发送 Google 日历活动提醒。",
+  "config.courier.label": "航空邮件信使", "config.courier.description": "选择负责递送日历航空邮件的信使。",
+  "config.courier.airdog": "飞天狗", "config.courier.owl": "猫头鹰", "config.courier.dragon": "龙", "config.courier.cloud": "云朵", "config.courier.bat": "蝙蝠", "config.courier.bee": "蜜蜂", "config.courier.bear-balloon": "气球熊", "config.courier.pig-plane": "飞行员猪", "config.courier.owl-scout": "侦察猫头鹰", "config.courier.firefly": "萤火虫", "config.courier.duck-glider": "滑翔鸭", "config.courier.dog-helicopter": "信鸽 2", "config.courier.cat-balloon": "气球猫", "config.courier.pigeon": "信鸽",
+  "command.connect.title": "连接 Google 日历", "command.connect.description": "登录 Google，并允许对主日历的只读访问。", "command.sync.title": "立即同步", "command.sync.description": "立即从主 Google 日历获取即将开始的活动。", "command.disconnect.title": "断开 Google 日历", "command.disconnect.description": "从 OpenPets 中移除 Google 日历连接。", "command.test.title": "测试递送", "command.test.description": "使用所选信使发送一封示例日历航空邮件。",
+  "menu.todayCount": "今天还剩 {count} 个活动", "menu.todayNext": "下一项：{time} 的 {title}（{countdown}）",
+  "status.disconnected": "Google 日历尚未连接。", "status.connected": "Google 日历已连接。", "status.syncedNext": "日历已同步：{count} 个即将开始的活动。下一项：{startAt} 的 {title}。航空邮件提醒将在 {reminderAt} 发送。", "status.syncedEmpty": "日历已同步：未找到即将开始的活动。", "status.noReminder": "没有更多待发送的提醒", "status.reconnect": "需要重新连接 Google 日历。", "status.accessDenied": "Calendar API 访问被拒绝。请检查 Google Calendar API 和帐户访问权限，然后再次同步。", "status.offline": "日历暂时不可用；将保留现有递送。", "status.cap": "日历同步已达到活动数量上限；已保留现有递送。", "status.error": "无法完成日历同步。",
+  "delivery.title": "日历：{title}", "delivery.starts": "现在开始", "delivery.startsIn": "{minutes} 分钟后开始", "delivery.testTitle": "日历航空邮件测试", "delivery.testDetail": "你的信使已准备好递送日历提醒。", "error.notConnected": "请先连接 Google 日历，再同步。"
+}

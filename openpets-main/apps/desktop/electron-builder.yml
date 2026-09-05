@@ -1,0 +1,70 @@
+appId: dev.openpets.app
+productName: OpenPets
+executableName: openpets
+copyright: Copyright © 2026 OpenPets
+
+directories:
+  output: dist-electron
+
+artifactName: OpenPets-${version}-${os}-${arch}.${ext}
+
+files:
+  - dist/**
+  - control-center-preload.cjs
+  - pet-preload.cjs
+  - pet-tts-helper.cjs
+  - plugin-sdk-preload.cjs
+  - plugin-command-form-preload.cjs
+  - panel-preload.cjs
+  - voice-realtime-preload.cjs
+  - assets/**
+  - package.json
+
+extraResources:
+  - from: ../../plugins/official
+    to: plugins/official
+
+asar: true
+asarUnpack:
+  - node_modules/**
+npmRebuild: false
+publish: null
+
+toolsets:
+  appimage: 1.0.3
+
+mac:
+  icon: assets/app-icon.icns
+  category: public.app-category.utilities
+  extendInfo:
+    NSMicrophoneUsageDescription: OpenPets uses your microphone only for user-initiated one-shot input and realtime voice conversations.
+  target:
+    - dmg
+    - zip
+  # Ad-hoc sign macOS bundles when a Developer ID certificate is unavailable.
+  # Leaving the app bundle fully unsigned can produce Gatekeeper's misleading
+  # "damaged and can't be opened" dialog on Apple Silicon releases.
+  identity: "-"
+  hardenedRuntime: false
+  gatekeeperAssess: false
+
+win:
+  icon: assets/app-icon.ico
+  target:
+    - nsis
+  verifyUpdateCodeSignature: false
+
+nsis:
+  artifactName: OpenPets-${version}-win-${arch}-setup.${ext}
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+linux:
+  icon: assets/app-icon.png
+  target:
+    - AppImage
+    - deb
+    - rpm
+    - tar.gz
+  category: Utility
+  maintainer: OpenPets

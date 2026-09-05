@@ -1,0 +1,57 @@
+{
+  "plugin.name": "バーチャルペット",
+  "plugin.description": "小さなデスクトップの相棒をお世話して、穏やかな日々のふれあいで絆が育つのを見守ります。",
+  "hud.food": "ごはん",
+  "hud.energy": "元気",
+  "hud.play": "遊び",
+  "hud.bond": "絆",
+  "config.showStats.label": "ステータスパネルを表示",
+  "config.showStats.description": "ペットの横に「ごはん」「元気」「遊び」「絆」のパネルを表示します。オフにすると非表示になり、画面が広く使えます。",
+  "config.sound.label": "アクション音",
+  "config.sound.description": "ごはん、遊び、なでる、休むなど直接のお世話で任意の音を鳴らします。",
+
+  "command.feed.title": "おやつをあげる",
+  "command.feed.description": "ペットにおやつをあげます。",
+  "command.play.title": "遊ぶ",
+  "command.play.description": "短いゲームで遊びます。",
+  "command.pet.title": "なでる",
+  "command.pet.description": "ペットに愛情を伝えます。",
+  "command.nap.title": "休ませる",
+  "command.nap.description": "ペットを15分休ませます。",
+  "command.status.title": "様子を見る",
+  "command.status.description": "ペットの気分を確認します。",
+
+  "speech.feed.0": "おやつありがとう！",
+  "speech.feed.1": "*もぐもぐ*",
+  "speech.feed.2": "おいしい！",
+  "speech.feed.3": "とってもおいしかった！",
+
+  "speech.play.0": "楽しかった！",
+  "speech.play.1": "やった！",
+  "speech.play.2": "ゲームで遊ぶの大好き！",
+  "speech.play.3": "もう一回！",
+
+  "speech.pet.0": "ゴロゴロ...",
+  "speech.pet.1": "*すりすり*",
+  "speech.pet.2": "あったかい...",
+  "speech.pet.3": "ふわふわ！",
+
+  "speech.nap.0": "Zzz...",
+  "speech.nap.1": "*丸くなる*",
+  "speech.nap.2": "眠い...",
+  "speech.nap.3": "休憩中...",
+
+  "speech.levelup": "もっと仲良くなったね！",
+
+  "speech.status.sleeping": "Zzz...休んでるよ。",
+  "speech.status.hungry": "少しお腹がすいたよ。",
+  "speech.status.tired": "眠くなってきたよ。",
+  "speech.status.bored": "遊びたいな。",
+  "speech.status.happy": "とても元気だよ！",
+  "speech.status.content": "満ち足りてるよ。",
+
+  "nudge.hungry": "少しお腹がすいてきたよ。",
+  "nudge.tired": "眠くなってきたよ。",
+  "nudge.bored": "遊んでくれる？",
+  "nudge.neglected": "少しかまってくれる？"
+}

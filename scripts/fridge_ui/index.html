@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Golden Fridge — Standalone Hand Feeder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Transparent overlay container -->
+  <div class="hud-top">
+    <div class="hud-pill">
+      <span class="hud-dot" id="tracking-status-dot"></span>
+      <span id="hud-status-text">PALM CLOSE: OPEN/CLOSE FRIDGE • PINCH: GRAB FOOD (MAX 9)</span>
+    </div>
+    <div class="hud-buttons">
+      <button id="btn-refresh" class="hud-btn" title="Reload Food Inbox">⟳ SYNC</button>
+      <button id="btn-close-app" class="hud-btn hud-btn-red" title="Close Overlay (Esc)">✕ EXIT</button>
+    </div>
+  </div>
+
+  <div id="toast-banner" class="toast-banner"></div>
+
+  <main class="game" aria-label="Interactive golden refrigerator">
+    <div id="fridge" class="fridge" aria-live="polite">
+      <div class="fridge-body">
+        <div class="top-cap"></div>
+        <div class="interior" aria-label="Fridge interior with nine storage spaces">
+          <div class="inside-glow"></div>
+          <button id="close-door" class="close-door" type="button" aria-label="Close refrigerator door">×</button>
+          <div id="shelves" class="shelves"></div>
+        </div>
+        <button id="door" class="door" aria-label="Open refrigerator door">
+          <span class="door-shine"></span>
+          <span class="handle"></span>
+          <span class="door-bottom"></span>
+        </button>
+        <div class="feet left"></div><div class="feet right"></div>
+      </div>
+    </div>
+
+    <!-- Interactive Pet Drop Target (OpenPets Sprite & Speech Bubble) -->
+    <div id="pet-stage" class="pet-stage">
+      <div id="pet-bubble" class="pet-bubble">
+        <div class="bubble-header">
+          <span class="bubble-tag">TINK</span>
+          <span id="pet-mood-badge" class="bubble-badge">HUNGRY</span>
+        </div>
+        <div id="pet-bubble-text" class="bubble-text">Pinch food & drop it on me to feed! 🐾</div>
+      </div>
+      <div id="pet-character" class="pet-character" data-state="idle" title="Drag food directly onto Tink!">
+        <div class="pet-sprite"></div>
+        <div class="pet-shadow"></div>
+      </div>
+      <div class="pet-nameplate">
+        <span class="name">🐾 TINK</span>
+        <span class="sub">DROP FOOD ON ME</span>
+      </div>
+    </div>
+  </main>
+
+  <!-- Hand Tracking Cursor Dot -->
+  <div id="hand-cursor" class="hand-cursor">
+    <div class="cursor-ring"></div>
+    <div class="cursor-dot"></div>
+    <div id="cursor-badge" class="cursor-badge">POINT</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

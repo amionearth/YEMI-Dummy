@@ -1,0 +1,57 @@
+{
+  "plugin.name": "가상 펫",
+  "plugin.description": "작은 데스크톱 펫을 돌보며 부드러운 일상 상호작용으로 유대가 자라는 모습을 지켜보세요.",
+  "hud.food": "먹이",
+  "hud.energy": "에너지",
+  "hud.play": "놀이",
+  "hud.bond": "유대감",
+  "config.showStats.label": "상태 패널 표시",
+  "config.showStats.description": "펫 옆에 먹이, 에너지, 놀이, 유대감 패널을 표시합니다. 끄면 숨겨져 화면 공간을 확보할 수 있습니다.",
+  "config.sound.label": "동작 소리",
+  "config.sound.description": "먹이 주기, 놀기, 쓰다듬기, 쉬기 같은 직접 돌봄 동작에 선택적으로 소리를 재생합니다.",
+
+  "command.feed.title": "간식 주기",
+  "command.feed.description": "펫에게 간식을 주세요.",
+  "command.play.title": "게임하기",
+  "command.play.description": "짧은 게임을 해요.",
+  "command.pet.title": "쓰다듬기",
+  "command.pet.description": "펫에게 애정을 주세요.",
+  "command.nap.title": "쉬게 하기",
+  "command.nap.description": "펫이 15분 동안 쉬게 합니다.",
+  "command.status.title": "펫 살피기",
+  "command.status.description": "펫이 어떤 기분인지 확인합니다.",
+
+  "speech.feed.0": "간식 고마워요!",
+  "speech.feed.1": "*냠냠냠*",
+  "speech.feed.2": "맛있어요!",
+  "speech.feed.3": "정말 맛있었어요!",
+
+  "speech.play.0": "재밌었어요!",
+  "speech.play.1": "야호!",
+  "speech.play.2": "게임하는 거 좋아요!",
+  "speech.play.3": "또 해요!",
+
+  "speech.pet.0": "골골골...",
+  "speech.pet.1": "*부비부비*",
+  "speech.pet.2": "따뜻해요...",
+  "speech.pet.3": "정말 부드러워요!",
+
+  "speech.nap.0": "Zzz...",
+  "speech.nap.1": "*몸을 말아요*",
+  "speech.nap.2": "졸려요...",
+  "speech.nap.3": "쉬는 중...",
+
+  "speech.levelup": "우리 더 가까워지고 있어요!",
+
+  "speech.status.sleeping": "Zzz... 쉬고 있어요.",
+  "speech.status.hungry": "조금 배고파요.",
+  "speech.status.tired": "졸려요.",
+  "speech.status.bored": "놀고 싶어요.",
+  "speech.status.happy": "기분이 아주 좋아요!",
+  "speech.status.content": "편안해요.",
+
+  "nudge.hungry": "조금 배고파지고 있어요.",
+  "nudge.tired": "졸려지고 있어요.",
+  "nudge.bored": "같이 놀까요?",
+  "nudge.neglected": "조금 관심을 줄 수 있나요?"
+}

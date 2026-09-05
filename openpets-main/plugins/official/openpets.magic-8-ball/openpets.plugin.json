@@ -1,0 +1,17 @@
+{
+  "manifestVersion": 3,
+  "id": "openpets.magic-8-ball",
+  "name": "$t:plugin.name",
+  "description": "$t:plugin.description",
+  "version": "1.0.0",
+  "runtime": "javascript",
+  "icon": "sparkles",
+  "sdkVersion": "3.0.0",
+  "entry": "index.js",
+  "assets": {
+    "icons": {
+      "magic8": "assets/magic-8-ball.svg"
+    }
+  },
+  "permissions": ["pet:speak", "commands", "storage"]
+}

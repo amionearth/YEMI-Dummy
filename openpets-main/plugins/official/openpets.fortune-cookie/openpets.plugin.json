@@ -1,0 +1,25 @@
+{
+  "manifestVersion": 3,
+  "id": "openpets.fortune-cookie",
+  "name": "$t:plugin.name",
+  "description": "$t:plugin.description",
+  "version": "1.0.0",
+  "runtime": "javascript",
+  "icon": "sparkles",
+  "sdkVersion": "3.0.0",
+  "entry": "index.js",
+  "assets": {
+    "icons": {
+      "fortune": "assets/fortune-cookie.svg"
+    }
+  },
+  "permissions": ["pet:speak", "schedule", "storage", "commands"],
+  "configSchema": {
+    "dailyTime": {
+      "type": "time",
+      "default": "10:00",
+      "label": "$t:config.dailyTime.label",
+      "description": "$t:config.dailyTime.description"
+    }
+  }
+}

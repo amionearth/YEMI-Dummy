@@ -1,0 +1,12 @@
+{
+  "name": "openpets.walkabout",
+  "version": "1.0.0",
+  "description": "OpenPets plugin — makes your pet roam the screen.",
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-vm-modules test.js"
+  },
+  "devDependencies": {
+    "@open-pets/plugin-sdk": "^3.0.0"
+  }
+}

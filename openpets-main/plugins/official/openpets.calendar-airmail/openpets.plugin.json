@@ -1,0 +1,24 @@
+{
+  "manifestVersion": 3, "id": "openpets.calendar-airmail", "name": "$t:plugin.name", "description": "$t:plugin.description", "version": "1.2.2", "runtime": "javascript", "icon": "bell", "sdkVersion": "3.0.0", "entry": "index.js",
+  "permissions": ["ui:delivery", "auth", "network", "schedule", "storage", "commands", "status"], "network": { "hosts": ["www.googleapis.com"] },
+  "configSchema": { "courier": { "type": "select", "presentation": "sprite-grid", "label": "$t:config.courier.label", "description": "$t:config.courier.description", "default": "courier-airdog", "options": [
+    { "value": "courier-airdog", "label": "$t:config.courier.airdog", "previewSprite": "courier-airdog" },
+    { "value": "courier-owl", "label": "$t:config.courier.owl", "previewSprite": "courier-owl" },
+    { "value": "courier-dragon", "label": "$t:config.courier.dragon", "previewSprite": "courier-dragon" },
+    { "value": "courier-cloud", "label": "$t:config.courier.cloud", "previewSprite": "courier-cloud" },
+    { "value": "courier-bat", "label": "$t:config.courier.bat", "previewSprite": "courier-bat" },
+    { "value": "courier-bee", "label": "$t:config.courier.bee", "previewSprite": "courier-bee" },
+    { "value": "courier-bear-balloon", "label": "$t:config.courier.bear-balloon", "previewSprite": "courier-bear-balloon" },
+    { "value": "courier-pig-plane", "label": "$t:config.courier.pig-plane", "previewSprite": "courier-pig-plane" },
+    { "value": "courier-owl-scout", "label": "$t:config.courier.owl-scout", "previewSprite": "courier-owl-scout" },
+    { "value": "courier-firefly", "label": "$t:config.courier.firefly", "previewSprite": "courier-firefly" },
+    { "value": "courier-duck-glider", "label": "$t:config.courier.duck-glider", "previewSprite": "courier-duck-glider" },
+    { "value": "courier-dog-helicopter", "label": "$t:config.courier.dog-helicopter", "previewSprite": "courier-dog-helicopter" },
+    { "value": "courier-cat-balloon", "label": "$t:config.courier.cat-balloon", "previewSprite": "courier-cat-balloon" },
+    { "value": "courier-pigeon", "label": "$t:config.courier.pigeon", "previewSprite": "courier-pigeon" }
+  ] } },
+  "assets": { "sprites": {
+    "courier-airdog": { "path": "assets/couriers/courier-airdog.webp", "frameWidth": 256, "frameHeight": 256, "frames": 8, "durationMs": 1200 }, "courier-owl": { "path": "assets/couriers/courier-owl.webp", "frameWidth": 256, "frameHeight": 256, "frames": 8, "durationMs": 1200 }, "courier-dragon": { "path": "assets/couriers/courier-dragon.webp", "frameWidth": 256, "frameHeight": 256, "frames": 8, "durationMs": 1200 }, "courier-cloud": { "path": "assets/couriers/courier-cloud.webp", "frameWidth": 256, "frameHeight": 256, "frames": 8, "durationMs": 1200 }, "courier-bat": { "path": "assets/couriers/courier-bat.webp", "frameWidth": 256, "frameHeight": 256, "frames": 8, "durationMs": 1200 }, "courier-bee": { "path": "assets/couriers/courier-bee.webp", "frameWidth": 256, "frameHeight": 256, "frames": 8, "durationMs": 1200 },
+    "courier-bear-balloon": { "path": "assets/couriers/courier-bear-balloon.webp", "frameWidth": 256, "frameHeight": 256, "frames": 8, "durationMs": 1200 }, "courier-pig-plane": { "path": "assets/couriers/courier-pig-plane.webp", "frameWidth": 256, "frameHeight": 256, "frames": 8, "durationMs": 1200 }, "courier-owl-scout": { "path": "assets/couriers/courier-owl-scout.webp", "frameWidth": 256, "frameHeight": 256, "frames": 8, "durationMs": 1200 }, "courier-firefly": { "path": "assets/couriers/courier-firefly.webp", "frameWidth": 256, "frameHeight": 256, "frames": 8, "durationMs": 1200 }, "courier-duck-glider": { "path": "assets/couriers/courier-duck-glider.webp", "frameWidth": 256, "frameHeight": 256, "frames": 8, "durationMs": 1200 }, "courier-dog-helicopter": { "path": "assets/couriers/courier-dog-helicopter.webp", "frameWidth": 256, "frameHeight": 256, "frames": 8, "durationMs": 1200 }, "courier-cat-balloon": { "path": "assets/couriers/courier-cat-balloon.webp", "frameWidth": 256, "frameHeight": 256, "frames": 8, "durationMs": 1200 }, "courier-pigeon": { "path": "assets/couriers/courier-pigeon.webp", "frameWidth": 256, "frameHeight": 256, "frames": 8, "durationMs": 1200 }
+  } }
+}

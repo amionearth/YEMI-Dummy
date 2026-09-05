@@ -1,0 +1,19 @@
+name: Feature request
+description: Suggest an improvement for OpenPets.
+title: "Feature: "
+labels: ["feature"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the idea. Keep it short — we only need the essentials.
+
+  - type: textarea
+    id: request
+    attributes:
+      label: What do you want?
+      description: Describe the feature or change you would like to see.
+      placeholder: "I want OpenPets to..."
+    validations:
+      required: true
+

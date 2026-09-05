@@ -1,0 +1,12 @@
+{
+  "name": "openpets.higgsfield-watch",
+  "version": "1.0.0",
+  "description": "OpenPets community plugin that tracks Higgsfield AI generations.",
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-vm-modules test.js"
+  },
+  "devDependencies": {
+    "@open-pets/plugin-sdk": "^3.0.0"
+  }
+}

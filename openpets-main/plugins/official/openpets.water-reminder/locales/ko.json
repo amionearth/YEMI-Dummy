@@ -1,0 +1,23 @@
+{
+  "plugin.name": "물 마시기 알림",
+  "plugin.description": "펫이 물 마실 시간을 부드럽게 알려줘요.",
+  "config.pace.label": "알림 간격",
+  "config.pace.description": "펫이 얼마나 자주 알려줄지 선택하세요.",
+  "config.pace.gentle": "느긋하게",
+  "config.pace.normal": "보통",
+  "config.pace.often": "자주",
+  "config.customSound.label": "사용자 지정 소리",
+  "config.customSound.description": "알림과 함께 재생할 선택 소리입니다.",
+  "indicator.water": "물 마시기 알림",
+  "command.testReminder.title": "알림 테스트",
+  "command.testReminder.description": "물 마시기 알림을 지금 표시하여 메시지와 소리를 확인할 수 있도록 합니다.",
+  "command.drinkNow.title": "물을 마셨어요",
+  "command.drinkNow.description": "지금 물 마신 시간을 기록합니다.",
+  "command.pauseToday.title": "오늘은 쉬기",
+  "command.pauseToday.description": "내일까지 물 알림을 건너뜁니다.",
+  "bubble.reminder": "물 한잔 쉬어갈까요? 몇 모금이면 좋아요.",
+  "action.done": "완료",
+  "action.later": "나중에",
+  "speech.done": "좋아요. 나중에 다시 알려줄게요.",
+  "speech.paused": "오늘은 쉬어갈게요. 내일 다시 알려드릴게요."
+}

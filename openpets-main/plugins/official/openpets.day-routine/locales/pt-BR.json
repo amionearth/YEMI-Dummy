@@ -1,0 +1,21 @@
+{
+  "plugin.name": "Rotina da manhã e da noite",
+  "plugin.description": "Check-ins diários gentis para começar e encerrar o dia com seu pet.",
+  "config.morningTime.label": "Horário da manhã",
+  "config.morningTime.description": "Horário local do cumprimento matinal.",
+  "config.eveningTime.label": "Horário da noite",
+  "config.eveningTime.description": "Horário local da despedida da noite.",
+  "config.enableMorning.label": "Ativar manhã",
+  "config.enableMorning.description": "Mostra o cumprimento matinal todos os dias.",
+  "config.enableEvening.label": "Ativar noite",
+  "config.enableEvening.description": "Mostra a despedida da noite todos os dias.",
+  "command.morningNow.title": "Cumprimento matinal agora",
+  "command.morningNow.description": "Mostra uma vez o cumprimento matinal de hoje.",
+  "command.eveningNow.title": "Despedida da noite agora",
+  "command.eveningNow.description": "Mostra uma vez a despedida da noite de hoje.",
+  "command.pauseToday.title": "Pausar hoje",
+  "command.pauseToday.description": "Pula os check-ins até amanhã.",
+  "speech.morning": "Bom dia. Dê um primeiro passo suave e deixe o dia se abrir.",
+  "speech.evening": "Check-in da noite. Você já pode deixar o dia descansar.",
+  "speech.paused": "Pausado por hoje. Volto a fazer check-in amanhã."
+}

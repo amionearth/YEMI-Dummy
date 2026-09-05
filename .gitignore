@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# Virtual env
+.venv/
+venv/
+env/
+
+# Big model weights + caches (do NOT commit)
+models/
+*.safetensors
+*.bin
+*.pt
+*.gguf
+
+# Pet state (per-user data)
+pet_brain/data/
+pet_brain/checkpoints/
+pet_brain/adapters/
+pet_brain/eval/
+pet_brain/_train_tmp/
+pet_brain/__pycache__/
+dashboard/backend/__pycache__/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.idea/
+.vscode/
+*.swp
+
+# Logs
+*.log
